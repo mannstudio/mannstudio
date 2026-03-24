@@ -1,0 +1,1188 @@
+<!doctype html>
+<html lang="zh-TW">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>漫恩美學・MANN STUDIO</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+      background: #F5F3F0;
+      min-height: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      color: #5A4E45;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .app-wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      min-height: 100vh;
+      box-shadow: 0 12px 48px rgba(139, 126, 116, 0.15);
+    }
+
+    .header {
+      text-align: center;
+      padding: 64px 24px 36px;
+      background: #FFFFFF;
+    }
+
+    .header h1 {
+      margin: 0 0 16px 0;
+      font-size: 32px;
+      font-weight: 600;
+      color: #7A6C60;
+      letter-spacing: 4px;
+      word-wrap: break-word;
+    }
+
+    .header p {
+      margin: 0;
+      font-size: 15px;
+      color: #A89B91;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+
+    .tabs {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(8px);
+      display: flex;
+      gap: 0;
+      padding: 0 16px;
+      z-index: 100;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-bottom: 1px solid rgba(240, 235, 230, 0.7);
+    }
+
+    .tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .quick-links {
+      position: sticky;
+      top: 52px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      display: flex;
+      gap: 16px;
+      padding: 20px 24px;
+      z-index: 99;
+      box-shadow: 0 6px 20px rgba(139, 126, 116, 0.06);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .quick-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .quick-link-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 14px 20px;
+      background: #FDFCFB;
+      color: #6B5B4F;
+      text-decoration: none;
+      border-radius: 16px;
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      box-shadow: 0 3px 12px rgba(139, 126, 116, 0.08);
+      letter-spacing: 0.5px;
+    }
+
+    .quick-link-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(139, 126, 116, 0.15);
+    }
+
+    .tab {
+      flex: 0 0 auto;
+      min-width: 76px;
+      padding: 16px 14px;
+      text-align: center;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: #A89B91;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+    }
+
+    .tab.active {
+      color: #7A6C60;
+      font-weight: 600;
+      border-bottom: 2px solid #D4C4B7;
+    }
+
+    .content {
+      padding: 0 0 120px 0;
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 32px 24px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-size: 19px;
+      font-weight: 600;
+      color: #7A6C60;
+      margin: 0 0 28px 0;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(240, 235, 230, 0.8);
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 18px;
+      background: #D4C4B7;
+      border-radius: 2px;
+    }
+
+    .sub-tabs-container {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 6px;
+    }
+    .sub-tabs-container::-webkit-scrollbar { display: none; }
+
+    .sub-tab-btn {
+      flex: 1;
+      min-width: 96px;
+      padding: 12px 20px;
+      background: transparent;
+      color: #B5ABA1;
+      border: 1px solid #E8E3DE;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      letter-spacing: 0.5px;
+    }
+    .sub-tab-btn.active {
+      background: #FFF9F5;
+      color: #7A6C60;
+      border-color: #D4C4B7;
+      font-weight: 600;
+      box-shadow: 0 3px 10px rgba(212, 196, 183, 0.25);
+    }
+
+    .price-item {
+      background: transparent;
+      border-radius: 0;
+      padding: 18px 0;
+      margin-bottom: 0;
+      border: none;
+      border-bottom: 1px solid rgba(232, 227, 222, 0.5);
+    }
+    .price-item:last-child {
+      border-bottom: none;
+    }
+
+    .price-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .price-item-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #5A4E45;
+      letter-spacing: 0.5px;
+    }
+
+    .price-item-price {
+      font-size: 17px;
+      font-weight: 600;
+      color: #7A6C60;
+    }
+
+    .price-item-desc {
+      font-size: 14px;
+      color: #9C8F85;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .info-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 0;
+      margin-bottom: 24px;
+      border: 1px solid rgba(240, 235, 230, 0.8);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(139, 126, 116, 0.04);
+      transition: transform 0.3s ease;
+    }
+
+    .info-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #6B5B4F;
+      margin: 0;
+      padding: 20px 24px;
+      background: #FDFBF9;
+      border-bottom: 1px solid rgba(240, 235, 230, 0.6);
+      letter-spacing: 0.5px;
+    }
+    
+    .info-card-content {
+      padding: 24px;
+    }
+
+    .info-card.highlight {
+      background: #FFFBF8;
+      border: 1px solid #F5EAE1;
+    }
+    .info-card.highlight h3 {
+      background: #FFF5EE;
+      color: #7A6C60;
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-list li {
+      padding: 10px 0 10px 22px;
+      color: #6B5B4F;
+      font-size: 15px;
+      line-height: 1.8;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+
+    .info-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      top: 11px;
+      color: #D4C4B7;
+      font-size: 13px;
+    }
+
+    .plan-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 0;
+      margin-bottom: 20px;
+      border: 1px solid rgba(240, 235, 230, 0.8);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(139, 126, 116, 0.04);
+    }
+
+    .plan-card-content {
+      position: relative;
+      z-index: 1;
+      padding: 24px;
+    }
+
+    .plan-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #6B5B4F;
+      margin: 0 0 10px 0;
+      letter-spacing: 0.5px;
+    }
+
+    .plan-amount {
+      font-size: 24px;
+      font-weight: 700;
+      color: #7A6C60;
+      margin: 0 0 10px 0;
+    }
+
+    .plan-desc {
+      font-size: 15px;
+      color: #9C8F85;
+      line-height: 1.7;
+      margin: 8px 0 0 0;
+    }
+
+    .sub-tab-panel {
+      display: none;
+    }
+    .sub-tab-panel.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    p.intro-text {
+      margin: 0 0 18px 0;
+      font-size: 15px;
+      color: #6B5B4F;
+      line-height: 1.8;
+      letter-spacing: 0.5px;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="app-wrapper">
+   <header class="header">
+    <h1 id="store-name">漫恩美學</h1>
+    <p id="store-subtitle">接睫毛 ｜ 睫毛管理 ｜ 半永久 ｜ 眉毛淡色</p>
+   </header>
+
+   <nav class="tabs">
+    <button class="tab active" data-tab="price">服務價目</button> 
+    <button class="tab" data-tab="plan">專屬優惠</button> 
+    <button class="tab" data-tab="notice">預約須知</button> 
+    <button class="tab" data-tab="before">術前準備</button> 
+    <button class="tab" data-tab="after">術後保養</button> 
+    <button class="tab" data-tab="faq">常見問題</button>
+   </nav>
+
+   <div class="quick-links">
+    <a href="https://lin.ee/tYu6u0A" target="_blank" rel="noopener noreferrer" class="quick-link-btn"> LINE 預約 </a> 
+    <a href="https://www.instagram.com/mann___studio/" target="_blank" rel="noopener noreferrer" class="quick-link-btn"> Instagram </a>
+   </div>
+
+   <main class="content">
+    
+    <div class="tab-panel active" id="price">
+     <h2 class="section-title">服務價目表</h2>
+     <div class="sub-tabs-container">
+      <button class="sub-tab-btn price-sub-tab active" data-subtab="waxing"> 接睫毛 </button> 
+      <button class="sub-tab-btn price-sub-tab" data-subtab="lashes"> 睫毛管理 </button>
+      <button class="sub-tab-btn price-sub-tab" data-subtab="embroidery"> 半永久 </button>
+      <button class="sub-tab-btn price-sub-tab" data-subtab="tinting"> 眉毛淡色 </button>
+     </div>
+     
+     <div class="sub-tab-panel active" id="waxing">
+      <div class="info-card highlight">
+       <div class="info-card-content">
+        <p class="intro-text" style="margin: 0; text-align: center; font-weight: 500; letter-spacing: 1px;">專屬眼型客製化設計，提供單根扁毛、仙子束感、輕柔多根及混搭等多樣選擇，為您打造完美眼神。</p>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>接睫毛服務</h3>
+       <div class="info-card-content">
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">小清新款</span> <span class="price-item-price">NT$ 1,400</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">自然妝感</span> <span class="price-item-price">NT$ 1,600</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">萌萌濃密</span> <span class="price-item-price">NT$ 1,800</span></div>
+        </div>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>加購與其他服務</h3>
+       <div class="info-card-content">
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">下睫毛</span> <span class="price-item-price">NT$ 500</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">睫毛平復術</span> <span class="price-item-price">NT$ 500</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">接睫後塑形</span> <span class="price-item-price">NT$ 1,000</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">睫毛卸除</span> <span class="price-item-price">NT$ 200</span></div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="lashes">
+      <div class="info-card highlight">
+       <div class="info-card-content">
+        <p class="intro-text" style="margin: 0; text-align: center;">採用韓國保濕精華與酸鹼平衡技術，深層滋養原生睫毛。<br>建議搭配專屬睫毛雨衣，維持日常健康捲翹。</p>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>睫毛管理服務</h3>
+       <div class="info-card-content">
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">精油睫毛管理</span> <span class="price-item-price">NT$ 1,200</span></div>
+        </div>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>加購與其他服務</h3>
+       <div class="info-card-content">
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">下睫毛</span> <span class="price-item-price">NT$ 500</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">韓系塑眉</span> <span class="price-item-price">NT$ 1,000</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">睫毛卸除</span> <span class="price-item-price">NT$ 200</span></div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="embroidery">
+      <div class="info-card highlight">
+       <div class="info-card-content">
+        <p class="intro-text" style="margin: 0; text-align: center;">為您量身定製專屬五官比例。首次操作後，兩個月內提供微調補色服務，使留色與整體妝感更臻完美。</p>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>半永久服務</h3>
+       <div class="info-card-content">
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">美睫眼線</span> <span class="price-item-price">NT$ 6,800</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">質感霧眉</span> <span class="price-item-price">NT$ 8,800</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">唇色矯正</span> <span class="price-item-price">NT$ 11,800</span></div>
+        </div>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>年度補色方案（單次操作）</h3>
+       <div class="info-card-content">
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">一年內</span> <span class="price-item-price">定價 5 折</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">兩年內</span> <span class="price-item-price">定價 7 折</span></div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="tinting">
+      <div class="info-card highlight">
+       <div class="info-card-content">
+        <p class="intro-text" style="margin: 0; text-align: center;">溫和無創的淡化技術，修復期短暫。安全擊碎沉澱色素，為您逐漸還原清透的原生眉毛底色。</p>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>眉毛淡色服務</h3>
+       <div class="info-card-content">
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">單次體驗</span> <span class="price-item-price">NT$ 2,500</span></div>
+        </div>
+        <div class="price-item">
+         <div class="price-item-header"><span class="price-item-name">第四次起 (單次)</span> <span class="price-item-price">NT$ 1,500</span></div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <div class="tab-panel" id="plan">
+     <h2 class="section-title">常態優惠</h2>
+     <div class="info-card highlight">
+      <div class="info-card-content">
+       <p class="intro-text" style="margin:0;">除下方常規優惠外，亦會不定期於 Instagram 發布限定組合與活動折扣，歡迎追蹤以掌握最新資訊。</p>
+      </div>
+     </div>
+     
+     <div class="plan-card">
+      <div class="plan-card-content">
+       <div class="plan-title">新客專屬禮遇</div>
+       <div class="plan-amount">折抵 NT$ 100</div>
+       <p class="plan-desc">初次來店消費，出示 IG 追蹤畫面，即可享有 100 元新客優惠折抵金。</p>
+      </div>
+     </div>
+     <div class="plan-card">
+      <div class="plan-card-content">
+       <div class="plan-title">壽星與好友推薦</div>
+       <div class="plan-amount">折抵 NT$ 100</div>
+       <p class="plan-desc">當月壽星（請出示證件）或由親友推薦來店，結帳時將為您折抵 100 元。</p>
+      </div>
+     </div>
+     <div class="plan-card">
+      <div class="plan-card-content">
+       <div class="plan-title">居家保養優惠</div>
+       <div class="plan-amount">95 折優惠</div>
+       <p class="plan-desc">消費當日若加購任何居家保養產品，皆可享有專屬的 95 折優惠。</p>
+      </div>
+     </div>
+     <div class="plan-card">
+      <div class="plan-card-content">
+       <div class="plan-title">社群分享回饋</div>
+       <div class="plan-amount">折抵 NT$ 50</div>
+       <p class="plan-desc">於 IG 發布限時動態或貼文分享並標記漫恩，將為您折抵 50 元費用。</p>
+      </div>
+     </div>
+
+     <div class="info-card">
+      <h3>優惠使用規範</h3>
+      <div class="info-card-content">
+       <ul class="info-list">
+        <li>好友推薦：請主動告知推薦人姓名，雙方皆可獲得 100 元折價券（無限期，每次消費限用一張）。</li>
+        <li>各項折扣（新客、壽星、推薦、打卡分享）每次消費僅能擇一使用，結帳時將為您計算最划算的方案。</li>
+        <li>若您的 IG 為不公開帳號，請於結帳時出示分享畫面供確認。</li>
+        <li>本店保有修改及終止活動之權利，相關變更恕不另行通知。</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+
+    <div class="tab-panel" id="notice">
+     <h2 class="section-title">預約須知</h2>
+     <div class="info-card">
+      <h3>新客專屬禮遇</h3>
+      <div class="info-card-content">
+       <ul class="info-list">
+        <li>加入會員預約時，請填寫本名以利建檔與認識您。</li>
+        <li>初次預約來店，皆可享有 100 元的新客專屬折抵優惠。</li>
+       </ul>
+      </div>
+     </div>
+     <div class="info-card">
+      <h3>工作室服務守則</h3>
+      <div class="info-card-content">
+       <ul class="info-list">
+        <li>為維護放鬆空間與服務品質，目前未開放攜伴及飲食。</li>
+        <li>為確保您的完整服務時間，請準時抵達即可（無需提早或遲到）。</li>
+        <li>若不慎遲到，當日將無法適用任何優惠折抵，敬請見諒。</li>
+       </ul>
+      </div>
+     </div>
+     <div class="info-card">
+      <h3>預約異動與取消規範</h3>
+      <div class="info-card-content">
+       <ul class="info-list">
+        <li>若需改期或取消，最晚請於預約日「2 天前」通知。</li>
+        <li>每筆預約提供 1 次的改期彈性。</li>
+        <li>若於當日或 24 小時內臨時取消，為保障雙方權益，定金將無法退還或保留。</li>
+        <li>無故未到（放鳥）將列入黑名單，恕無法再提供後續服務。</li>
+       </ul>
+      </div>
+     </div>
+     <div class="info-card">
+      <h3>預約定金與支付說明</h3>
+      <div class="info-card-content">
+       <ul class="info-list">
+        <li>為保障雙方權益並確認保留時段，所有預約皆需預先收取定金。</li>
+        <li>確認預約後，請於 24 小時內完成匯款手續。</li>
+        <li>確認收到定金後，時段即正式為您保留。當日服務完成後，尾款可使用現金或銀行轉帳支付。</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+
+    <div class="tab-panel" id="before">
+     <h2 class="section-title">術前準備</h2>
+     <div class="sub-tabs-container">
+      <button class="sub-tab-btn before-sub-tab active" data-subtab="before-waxing"> 接睫毛 </button> 
+      <button class="sub-tab-btn before-sub-tab" data-subtab="before-lashes"> 睫毛管理 </button>
+      <button class="sub-tab-btn before-sub-tab" data-subtab="before-embroidery"> 半永久 </button>
+      <button class="sub-tab-btn before-sub-tab" data-subtab="before-tinting"> 眉毛淡色 </button>
+     </div>
+
+     <div class="sub-tab-panel active" id="before-waxing">
+      <div class="info-card highlight">
+       <h3>請維持眼部素顏狀態</h3>
+       <div class="info-card-content">
+        <p class="intro-text">殘留的眼妝與油脂會影響黑膠附著力，為提升睫毛的持久度，請配合以下事項：</p>
+        <ul class="info-list">
+         <li><strong>暫停眼妝：</strong>當日請勿畫眼影、眼線，亦請暫停刷睫毛膏。</li>
+         <li><strong>維持自然狀態：</strong>無需預先使用睫毛夾。</li>
+         <li><strong>避開油性保養：</strong>前一晚及當日出門前，請暫停於眼周塗抹眼霜或美容油。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>術前健康與狀態評估</h3>
+       <div class="info-card-content">
+        <p class="intro-text">若有以下狀況請於預約時提前告知，以便評估最適合的方案：</p>
+        <ul class="info-list">
+         <li>近 3 個月內曾施作角蛋白或燙睫毛（可能影響接睫後的平順度）。</li>
+         <li>近半年內曾進行眼部相關手術（如雙眼皮、雷射）。</li>
+         <li>眼睛目前正處於發炎狀態（如結膜炎、針眼）或具易過敏體質。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>施作當日準備</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>配戴建議：</strong>過程中需閉眼約 2 小時，建議配戴一般眼鏡前來，或自備隱形眼鏡盒以利卸除。</li>
+         <li><strong>時間預留：</strong>整體操作約需 1.5 至 2.5 小時，建議預留充裕時間。</li>
+         <li><strong>適度飲水：</strong>施作前可先使用洗手間；建議減少飲用含咖啡因飲品，以避免操作時眼皮不自覺跳動。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="before-lashes">
+      <div class="info-card highlight">
+       <h3>請維持眼部素顏狀態</h3>
+       <div class="info-card-content">
+        <p class="intro-text">為確保睫毛能完整吸收保養精華，請以全素眼狀態前來。若需現場耗費較多時間卸妝，可能會影響操作與專屬養護的時間。</p>
+        <ul class="info-list">
+         <li><strong>暫停眼妝：</strong>當日請勿畫眼影、眼線或刷睫毛膏。</li>
+         <li><strong>維持自然毛流：</strong>請勿使用睫毛夾。</li>
+         <li><strong>避開油性保養：</strong>當日請暫停於眼周塗抹眼霜或美容油。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>術前健康與狀態評估</h3>
+       <div class="info-card-content">
+        <p class="intro-text">若有以下狀況，請於預約時提前告知：</p>
+        <ul class="info-list">
+         <li>距上次操作角蛋白未滿 6-8 週。</li>
+         <li>目前仍留有之前嫁接的假睫毛（現場將為您安排卸除，費用另計）。</li>
+         <li>眼睛目前有紅腫、發炎或長針眼的情況。</li>
+         <li>近半年內曾進行眼部手術，需確認傷口已完全復原。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>施作當日準備</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>配戴建議：</strong>過程需閉眼大約 1.5 小時，配戴一般眼鏡前來會較為舒適。</li>
+         <li><strong>預留充裕時間：</strong>請預留足夠的時間，放慢腳步享受這段保養時光。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="before-embroidery">
+      <div class="info-card">
+       <h3>【美睫眼線】術前評估與準備</h3>
+       <div class="info-card-content">
+        <p class="intro-text"><strong>為了您的安全，以下情況暫不提供服務：</strong></p>
+        <ul class="info-list">
+         <li>眼部正處於發炎、有傷口等狀況，或患有青光眼等較嚴重眼疾。</li>
+         <li>正值孕期、哺乳期，或具蟹足腫、免疫系統等特殊體質。</li>
+        </ul>
+        <p class="intro-text" style="margin-top: 16px;"><strong>術前一週黃金準備期：</strong></p>
+        <ul class="info-list">
+         <li><strong>錯開醫美療程：</strong>眼周肉毒或玻尿酸需間隔 1 個月；眼部手術建議間隔 3-6 個月。</li>
+         <li><strong>務必卸除睫毛：</strong>術前 3 天請將假睫毛卸除乾淨，以確保操作順利。</li>
+         <li><strong>暫停特定保養：</strong>術前 1-2 週請停用睫毛生長液；術前 3-5 天暫停服用魚油或維他命E等保健品。</li>
+        </ul>
+        <p class="intro-text" style="margin-top: 16px;"><strong>施作當日溫馨提醒：</strong></p>
+        <ul class="info-list">
+         <li>請配戴眼鏡並保持素眼狀態。前一晚請避免熬夜飲酒，以防眼部充血敏感。</li>
+         <li>術後前兩日眼皮可能呈現微腫狀態，建議適度預留修復期。</li>
+        </ul>
+       </div>
+      </div>
+
+      <div class="info-card">
+       <h3>【質感霧眉】術前評估與準備</h3>
+       <div class="info-card-content">
+        <p class="intro-text"><strong>為了您的安全，以下情況請先告知以利評估：</strong></p>
+        <ul class="info-list">
+         <li>孕期或哺乳期。具備蟹足腫、糖尿病等較特殊健康狀況。</li>
+         <li>眉毛周圍有發炎痘痘、開放性傷口或嚴重曬傷。</li>
+         <li><strong>美學觀念溝通：</strong>人臉骨骼與肌肉並非絕對對稱，施作時會竭力調整至視覺最和諧的狀態，但無法達成機器般的絕對對稱。</li>
+        </ul>
+        <p class="intro-text" style="margin-top: 16px;"><strong>術前一週黃金準備期：</strong></p>
+        <ul class="info-list">
+         <li><strong>加強保濕：</strong>加強眉周保濕，並暫停使用酸類與美白保養產品。</li>
+         <li><strong>維持原生毛流：</strong>請保留原生眉毛，無須自行修剪，交由專業設計即可。</li>
+         <li>術前數日請暫停服用魚油、維他命E等相關保健品。</li>
+        </ul>
+        <p class="intro-text" style="margin-top: 16px;"><strong>施作當日溫馨提醒：</strong></p>
+        <ul class="info-list">
+         <li>請保持充足睡眠與進食，出門前避免飲用咖啡或酒精。</li>
+         <li>完美眉型需經「初次操作 + 二次補色（1.5-2個月後）」兩階段打造，方能呈現最佳留色效果。</li>
+        </ul>
+       </div>
+      </div>
+
+      <div class="info-card">
+       <h3>【唇色矯正】術前評估與準備</h3>
+       <div class="info-card-content">
+        <p class="intro-text"><strong>為了您的安全，以下情況暫不提供服務：</strong></p>
+        <ul class="info-list">
+         <li>孕期、哺乳期或生理期間（體感較為敏感）。</li>
+         <li>唇部正處於發炎、長水泡、有傷口或嚴重乾裂脫皮之狀態。</li>
+        </ul>
+        <p class="intro-text" style="margin-top: 16px; color: #8B7E74; font-weight: 600;">核心防護：預防唇部皰疹</p>
+        <ul class="info-list">
+         <li>若曾有唇皰疹病史，強烈建議於術前 3 天至皮膚科開立口服抗病毒藥物。</li>
+         <li>請持續服用至結痂完全脫落，此為最有效的預防方式，並能確保留色完美。</li>
+        </ul>
+        <p class="intro-text" style="margin-top: 16px;"><strong>術前一週極致保濕與提醒：</strong></p>
+        <ul class="info-list">
+         <li><strong>深度保濕：</strong>每晚睡前厚敷凡士林或唇膜，維持唇部極度水潤，有助於加速上色。</li>
+         <li>術前 3-5 天可溫和去角質。若有施打玻尿酸豐唇，請間隔 1-3 個月。</li>
+         <li><strong>當日提醒：</strong>施作前請進食完畢，並暫停飲用咖啡或提神飲料。術後前兩日唇部會明顯微腫，請預留修復期。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="before-tinting">
+      <div class="info-card highlight">
+       <h3>施作前重要須知</h3>
+       <div class="info-card-content">
+        <p class="intro-text">淡化色素是一段需要耐心的修復過程，請先評估是否能配合以下事項：</p>
+        <ul class="info-list">
+         <li><strong>淡化需要時間：</strong>此為漸進式療程，通常需 3-6 次操作，每次間隔約一個多月。</li>
+         <li><strong>中途變色期：</strong>深色色素代謝後，可能短暫透出底層偏紅或偏橘的顏色，屬正常物理現象。</li>
+         <li><strong>暫時性反深：</strong>術後前一兩週色素浮出時，視覺上可能感覺變深，待代謝後即會淡化。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>禁忌症與安全評估</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li>孕期或哺乳期，或具蟹足腫等特殊體質。</li>
+         <li>正在服用會提高光敏感的藥物（例如口服 A 酸）。</li>
+         <li>眉毛周圍有曬傷、過敏發炎或開放性傷口。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>術前防護與保養調整</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>嚴格防曬：</strong>請加強物理防曬（配戴帽子或撐傘）。若有明顯曬黑或曬傷，請延後一個月施作。</li>
+         <li><strong>暫停酸類：</strong>術前一至兩週，眉周請暫停使用 A 酸、果酸或去角質產品。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>施作當日注意事項</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li>前一晚請保持充足睡眠，當日避免飲用咖啡或酒精，以降低肌膚敏感度。</li>
+         <li>請以「全素眉」前來，勿塗抹防曬或彩妝於操作部位。</li>
+         <li>術後眉周可能微紅，建議避開重要聚餐或約會。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <div class="tab-panel" id="after">
+     <h2 class="section-title">術後保養</h2>
+     <div class="sub-tabs-container">
+      <button class="sub-tab-btn after-sub-tab active" data-subtab="after-waxing"> 接睫毛 </button> 
+      <button class="sub-tab-btn after-sub-tab" data-subtab="after-lashes"> 睫毛管理 </button>
+      <button class="sub-tab-btn after-sub-tab" data-subtab="after-embroidery"> 半永久 </button>
+      <button class="sub-tab-btn after-sub-tab" data-subtab="after-tinting"> 眉毛淡色 </button>
+     </div>
+
+     <div class="sub-tab-panel active" id="after-waxing">
+      <div class="info-card highlight">
+       <h3>術後 2-4 小時：關鍵定型期</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>無需等待 6 小時：</strong>由於現場已為您進行專業的溫和沖洗，返家後即可正常洗臉。但 4 小時內仍建議避免蓮蓬頭水柱直接沖擊眼部。</li>
+         <li><strong>24 小時內避開高溫：</strong>雖然可以碰水，但請避開溫泉、蒸氣、烤箱，避免黑膠因溫差產生脆化。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>眼部清潔與持久度維護</h3>
+       <div class="info-card-content">
+        <p class="intro-text">保持睫毛根部清爽是維持持久度的關鍵。肌膚分泌的油脂會影響膠水附著力，請務必每日落實清潔。</p>
+        <ul class="info-list">
+         <li><strong>避免使用油性卸妝產品：</strong>油類產品會溶解黑膠，請改用無油成分的卸妝水。</li>
+         <li><strong>溫柔清潔：</strong>洗面乳起泡後，以指腹「由上往下」輕拂眼周，切勿橫向搓揉。洗後以面紙輕壓吸乾水分。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>日常起居保養守則</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>避免搓揉：</strong>為防原生睫毛受損與假睫毛脫落，請盡量避免揉眼睛。</li>
+         <li><strong>維持自然狀態：</strong>請勿使用睫毛夾，並建議避免使用防水型睫毛膏。</li>
+         <li><strong>建議睡姿：</strong>盡量保持仰睡，避免側睡或趴睡壓迫睫毛導致變形脫落。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>居家護理與代謝週期</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>每日梳整：</strong>洗臉輕壓擦乾後，使用專屬小刷從睫毛中段順著毛流輕梳（勿從根部拉扯）。</li>
+         <li><strong>睫毛雨衣防護：</strong>出門前薄塗睫毛雨衣，有助於隔絕汗水油脂，提升持久度。</li>
+         <li><strong>正常代謝：</strong>每日脫落 1-5 根屬正常毛髮代謝現象，無須過度擔憂。建議 2-3 週預約回補。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="after-lashes">
+      <div class="info-card highlight">
+       <h3>術後 24 小時：定型黃金期</h3>
+       <div class="info-card-content">
+        <p class="intro-text">此期間為捲度定型的關鍵，請配合以下事項：</p>
+        <ul class="info-list">
+         <li><strong>暫緩碰水：</strong>洗臉時盡量避開眼周，可使用洗臉巾輕輕擦拭。</li>
+         <li><strong>避開熱氣：</strong>避免接觸過熱的水溫、溫泉或蒸氣室。</li>
+         <li><strong>維持無負擔：</strong>暫停眼妝，並盡量保持仰睡，以防捲度受壓變形。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>日常居家保養建議</h3>
+       <div class="info-card-content">
+        <p class="intro-text">度過黃金 24 小時後即可恢復正常作息。後續保養重點在於保濕與修護：</p>
+        <ul class="info-list">
+         <li><strong>強烈建議：</strong>每日早晚塗抹睫毛滋養液，補充流失水分，維持毛髮健康光澤。</li>
+         <li><strong>日常梳理：</strong>洗臉後若毛流凌亂，可使用小梳子輕輕向上梳整。</li>
+         <li><strong>上妝須知：</strong>可正常化妝與使用卸妝油。建議選用溫水可卸型睫毛膏。絕對禁止使用睫毛夾，以免造成睫毛斷裂。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>維持週期與下次預約</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li>捲翹度約可維持 4 到 8 週，視個人睫毛生長週期而定。</li>
+         <li>大約一個月後，新生的直睫毛會使整體略顯不齊，此時加強塗抹滋養液可改善毛躁感。</li>
+         <li>為維護睫毛健康，建議間隔 6-8 週，待睫毛自然代謝後再進行下一次操作。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="after-embroidery">
+      <div class="info-card">
+       <h3>【美睫眼線】術後修復與照護</h3>
+       <div class="info-card-content">
+        <p class="intro-text">照護核心原則為：勤加冰敷、絕對避免搓揉。</p>
+        <ul class="info-list">
+         <li><strong>加強消腫：</strong>前 3 日可加強冰敷（敷 15 分鐘後適度休息）。早晚清潔後，以棉花棒沾取極少量修復膏「薄塗」於操作處。</li>
+         <li><strong>自然脫落：</strong>數日後會有黑色微屑自然脫落，嚴禁手動剝除，以免影響留色。</li>
+         <li>一週內請暫停眼妝，前幾日建議配戴眼鏡替代隱形眼鏡。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>【質感霧眉】完美留色修復指南</h3>
+       <div class="info-card-content">
+        <p class="intro-text">留色關鍵在於：保持清潔、極薄塗抹修復膏、絕對不可剝除結痂。</p>
+        <ul class="info-list">
+         <li><strong>首日防護：</strong>術後數小時內，可用食鹽水棉片輕壓眉毛擦拭組織液，預防結厚痂。</li>
+         <li><strong>修復期注意：</strong>洗臉後將眉周壓乾，修復膏務必極薄塗抹。脫皮期間嚴禁手動摳除。</li>
+         <li><strong>顏色變化：</strong>脫皮後顏色會暫時變淡，待一個月左右皮膚代謝完畢，顏色即會自然浮現。</li>
+         <li>一週內請暫停眉毛彩妝，並避免游泳或劇烈爆汗運動。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>【唇色矯正】唇部極致修復指南</h3>
+       <div class="info-card-content">
+        <p class="intro-text">照護核心原則為：隨時保持唇部極度滋潤，切勿乾燥。</p>
+        <ul class="info-list">
+         <li><strong>首日防護：</strong>術後前幾小時同樣以食鹽水棉片輕壓。第一天若有腫脹感可適度冰敷。</li>
+         <li><strong>持續保濕：</strong>進食後請以濕棉片將唇部擦拭乾淨。隨時補擦修復膏或凡士林，睡前務必厚敷。刷牙泡沫盡快吐除。</li>
+         <li>一週內請暫停食用過熱、辛辣及海鮮類食物，並暫停使用唇彩。</li>
+         <li><strong>溫馨提醒：</strong>若出現刺痛發癢或透明小水泡，請立即停用修復膏、保持乾燥並盡速聯繫。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="after-tinting">
+      <div class="info-card highlight">
+       <h3>術後鎮定與代謝觀察</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>初期鎮定：</strong>術後 24 小時內可多冰敷舒緩。洗臉請使用冷水，洗後輕壓擦乾，早晚薄塗修復霜。</li>
+         <li><strong>代謝過程：</strong>過幾日眉毛可能暫時變深、透出偏紅橘色，或有極細微黑屑浮出，皆為色素代謝的正常現象，請讓其自然脫落，嚴禁摳抓。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>首重防曬與防護機制</h3>
+       <div class="info-card-content">
+        <p class="intro-text">為避免淡化部位色素沉澱（反黑），一個月內請務必加強防護：</p>
+        <ul class="info-list">
+         <li><strong>確實防曬：</strong>外出請配戴帽子或撐傘進行物理防曬。待眉周無泛紅後，外出務必塗抹防曬乳。</li>
+         <li><strong>避開熱源與酸類：</strong>前兩週避免泡溫泉或使用過熱的水洗臉。一個月內請避開酸類及美白保養品。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>後續上妝與療程規劃</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>彩妝時機：</strong>待約一週後微屑完全脫落乾淨，即可正常使用眉毛彩妝（卸妝時請保持輕柔）。</li>
+         <li><strong>療程間隔：</strong>色素擊碎後需 4-8 週的時間由身體慢慢代謝，請耐心等待皮膚完全修復後，再預約下一次的淡化療程。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <div class="tab-panel" id="faq">
+     <h2 class="section-title">常見問題</h2>
+     <div class="sub-tabs-container">
+      <button class="sub-tab-btn faq-sub-tab active" data-subtab="faq-waxing"> 接睫毛FAQ </button> 
+      <button class="sub-tab-btn faq-sub-tab" data-subtab="faq-lashes"> 睫毛管理FAQ </button>
+      <button class="sub-tab-btn faq-sub-tab" data-subtab="faq-embroidery"> 半永久FAQ </button>
+      <button class="sub-tab-btn faq-sub-tab" data-subtab="faq-tinting"> 眉毛淡色FAQ </button>
+     </div>
+
+     <div class="sub-tab-panel active" id="faq-waxing">
+      <div class="info-card">
+       <h3>施作過程與感受</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：嫁接過程會痛或不舒服嗎？</strong><br>A：不會的。施作時嚴格遵守安全距離，將假睫毛接在離眼皮 0.1mm 處，絕不接觸皮膚。多數客人在過程中都感到非常放鬆舒適。</li>
+         <li><strong>Q：可以討論喜歡的長度或款式嗎？</strong><br>A：當然可以，施作前會根據您的眼型、原生睫毛狀況與個人喜好進行客製化評估，為您搭配最合適的設計。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>維持時間與居家護理</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：睫毛大約可以維持多久？</strong><br>A：一般約可維持 3-5 週。實際維持時間會因個人原生睫毛生長週期、眼周出油量以及日常居家保養習慣而有所差異。</li>
+         <li><strong>Q：接完還可以畫眼妝嗎？</strong><br>A：可以的，但建議眼妝保持清淡。卸妝時務必使用「無油成分」的卸妝水，以免影響膠水黏性導致睫毛提早脫落。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="faq-lashes">
+      <div class="info-card">
+       <h3>療程差異與適合對象</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：睫毛管理與傳統角蛋白有何不同？</strong><br>A：是更溫和的升級療程。過程中導入韓國保濕精華，以保養的規格調整毛流，施作後睫毛不僅捲翹，更能展現健康光澤。</li>
+         <li><strong>Q：睫毛較短或稀疏也可以施作嗎？</strong><br>A：可以的。不過因針對原生睫毛操作，效果會相對自然。強烈建議搭配睫毛滋養液長期養護，效果會更加顯著。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>術後上妝與照顧</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：做完之後還可以使用睫毛夾嗎？</strong><br>A：絕對不建議。施作後睫毛已具備完美捲翹度，若再使用物理性睫毛夾，極易造成睫毛斷裂受損。</li>
+         <li><strong>Q：後續可以刷睫毛膏嗎？</strong><br>A：可以正常化妝。建議選用「溫水可卸型」睫毛膏，以減少卸妝時的過度摩擦與拉扯。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="faq-embroidery">
+      <div class="info-card">
+       <h3>痛感評估與施作過程</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：霧眉、眼線或紋唇會痛嗎？</strong><br>A：開始前會進行完善的專屬舒緩步驟。多數客人的感受僅像被筆輕輕畫過，痛感極低，過程十分放鬆。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>修復期與結痂狀況</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：修復期會結厚痂嗎？剛做完會很不自然嗎？</strong><br>A：採用現代微創手法，術後僅有極薄的微屑掉落，無傳統厚痂期，施作當下即非常自然。</li>
+         <li><strong>Q：做完半永久可以馬上洗臉化妝嗎？</strong><br>A：施作部位一週內請避開生水及洗面乳，臉部其他區域可正常清潔。同時，一週內請暫停於施作部位上妝或塗抹保養品。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>二次補色重要性</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：為什麼會需要二次補色？</strong><br>A：首次操作主要為測試皮膚留色率與底層定型。待約一個月後顏色微退，第二次補色將針對細節微調並加強飽和度，確保最終留色完美持久。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+
+     <div class="sub-tab-panel" id="faq-tinting">
+      <div class="info-card">
+       <h3>療程次數與代謝時間</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：淡色操作一次就能完全清除嗎？</strong><br>A：由於沉澱色素屬分層代謝，無法保證單次完全清除。通常需 3-6 次漸進式療程，具體次數視殘留色料深淺與個人體質而定。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>原生毛髮影響評估</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：淡色後原生眉毛會變白或掉落嗎？</strong><br>A：不會的。此技術僅針對人工色素作用，不破壞原生毛囊。操作後原生眉毛可能暫時變白，屬正常物理現象，數日後即會自然恢復。</li>
+        </ul>
+       </div>
+      </div>
+      <div class="info-card">
+       <h3>後續紋繡時機規劃</h3>
+       <div class="info-card-content">
+        <ul class="info-list">
+         <li><strong>Q：淡色完成後，需間隔多久才能重新霧眉？</strong><br>A：為確保皮膚安全與後續留色效果，建議於最後一次淡色療程結束後，等待 1.5 到 2 個月，待皮膚完全修復後再行預約。</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+
+   </main>
+  </div>
+  
+  <script>
+    const defaultConfig = {
+      store_name: "漫恩美學",
+      store_subtitle: "接睫毛 ｜ 睫毛管理 ｜ 半永久 ｜ 眉毛淡色",
+      background_color: "#FAF7F5",
+      surface_color: "#FFFFFF",
+      text_color: "#6B5B4F",
+      primary_action_color: "#D4C4B7",
+      secondary_action_color: "#A89B91"
+    };
+
+    const config = { ...defaultConfig };
+
+    async function onConfigChange(cfg) {
+      document.getElementById('store-name').textContent = cfg.store_name || defaultConfig.store_name;
+      document.getElementById('store-subtitle').textContent = cfg.store_subtitle || defaultConfig.store_subtitle;
+
+      const backgroundColor = cfg.background_color || defaultConfig.background_color;
+      const surfaceColor = cfg.surface_color || defaultConfig.surface_color;
+      const textColor = cfg.text_color || defaultConfig.text_color;
+      const primaryActionColor = cfg.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryActionColor = cfg.secondary_action_color || defaultConfig.secondary_action_color;
+
+      document.body.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${adjustColor(backgroundColor, -10)} 50%, ${adjustColor(backgroundColor, 5)} 100%)`;
+      
+      document.querySelectorAll('.price-item, .info-card:not(.highlight)').forEach(el => {
+        el.style.background = `rgba(${hexToRgb(surfaceColor)}, 0.95)`;
+      });
+
+      document.querySelectorAll('.section-title, .price-item-name, .info-card h3, .plan-title, h1').forEach(el => {
+        el.style.color = textColor;
+      });
+
+      document.querySelectorAll('.contact-button, .quick-link-btn').forEach(btn => {
+        btn.style.background = `linear-gradient(135deg, #FDFCFB 0%, ${surfaceColor} 100%)`;
+      });
+
+      document.querySelectorAll('.tab').forEach(tab => {
+        if (!tab.classList.contains('active')) {
+          tab.style.color = secondaryActionColor;
+        }
+      });
+      document.querySelectorAll('.tab.active').forEach(tab => {
+        tab.style.color = textColor;
+      });
+
+      document.querySelectorAll('.plan-amount, .price-item-price').forEach(el => {
+        el.style.color = '#8B7E74';
+      });
+    }
+
+    function hexToRgb(hex) {
+      const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}` : '255, 255, 255';
+    }
+
+    function adjustColor(hex, percent) {
+      const num = parseInt(hex.replace('#', ''), 16);
+      const amt = Math.round(2.55 * percent);
+      const R = Math.min(255, Math.max(0, (num >> 16) + amt));
+      const G = Math.min(255, Math.max(0, (num >> 8 & 0x00FF) + amt));
+      const B = Math.min(255, Math.max(0, (num & 0x0000FF) + amt));
+      return '#' + (0x1000000 + (R << 16) + (G << 8) + B).toString(16).slice(1);
+    }
+
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTab = tab.dataset.tab;
+        
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        
+        tab.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+        
+        onConfigChange(config);
+      });
+    });
+
+    function setupSubTabs(selectorPrefix, panelPrefix) {
+      document.querySelectorAll(`.${selectorPrefix}`).forEach(subTab => {
+        subTab.addEventListener('click', () => {
+          const targetSubTab = subTab.dataset.subtab;
+          
+          document.querySelectorAll(`.${selectorPrefix}`).forEach(t => {
+            t.classList.remove('active');
+          });
+          
+          document.querySelectorAll(`#${panelPrefix} .sub-tab-panel`).forEach(p => p.classList.remove('active'));
+          
+          subTab.classList.add('active');
+          document.getElementById(targetSubTab).classList.add('active');
+        });
+      });
+    }
+
+    setupSubTabs('price-sub-tab', 'price');
+    setupSubTabs('before-sub-tab', 'before');
+    setupSubTabs('after-sub-tab', 'after');
+    setupSubTabs('faq-sub-tab', 'faq');
+
+    onConfigChange(config);
+  </script>
+ </body>
+</html>
