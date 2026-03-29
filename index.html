@@ -15,8 +15,8 @@
       margin: 0;
       padding: 0;
       font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', '微軟正黑體', sans-serif;
-      background-color: #F2EFE9; /* 外圍燕麥底色 */
-      color: #4A3E38;
+      background-color: #F7F5F2; /* 更輕柔的外圍底色 */
+      color: #554A41; /* 微調加深的柔和灰棕色字體 */
       line-height: 1.6;
     }
 
@@ -26,16 +26,16 @@
       width: 100%;
       max-width: 480px;
       margin: 0 auto;
-      background: #FBF9F6; /* 主體卡片柔白底色 */
+      background: #FDFCFB; /* 幾乎純白但帶微暖的底色 */
       min-height: 100vh;
-      box-shadow: 0 8px 32px rgba(74, 62, 56, 0.04);
+      box-shadow: 0 8px 32px rgba(98, 86, 77, 0.03);
     }
 
     /* --- 上方 Header 區塊 --- */
     .header {
       text-align: center;
       padding: 32px 20px 20px;
-      background: #FBF9F6;
+      background: #FDFCFB;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -45,7 +45,7 @@
       margin: 0 0 8px 0;
       font-size: 25px;
       font-weight: 600;
-      color: #4A3E38;
+      color: #554A41;
       letter-spacing: 4px;
       text-indent: 4px; 
       word-wrap: break-word;
@@ -54,7 +54,7 @@
     .header p {
       margin: 0;
       font-size: 13px;
-      color: #8B796A;
+      color: #8D7E71;
       font-weight: 400;
       letter-spacing: 2px;
       text-indent: 2px; 
@@ -76,10 +76,10 @@
       gap: 6px;
       padding: 8px 16px;
       background: #FFFFFF;
-      border: 1px solid rgba(210, 203, 195, 0.6);
+      border: 1px solid rgba(225, 220, 214, 0.6);
       border-radius: 99px;
       text-decoration: none;
-      color: #6E5F52;
+      color: #73655A;
       font-size: 13px;
       font-weight: 500;
       transition: all 0.3s ease;
@@ -88,8 +88,8 @@
 
     .social-btn:hover, .social-btn:active {
       background: #FFFFFF;
-      color: #4A3E38;
-      border-color: #D2CBC3;
+      color: #554A41;
+      border-color: #E2DCD5;
       transform: translateY(-1px);
     }
 
@@ -103,14 +103,14 @@
     .tabs {
       position: sticky;
       top: 0;
-      background: rgba(251, 249, 246, 0.96);
+      background: rgba(253, 252, 251, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       display: flex;
       justify-content: space-between;
       padding: 0 12px;
       z-index: 100;
-      border-bottom: 1px solid rgba(210, 203, 195, 0.4);
+      border-bottom: 1px solid rgba(225, 220, 214, 0.4);
       height: 50px;
     }
 
@@ -132,7 +132,7 @@
       border-radius: 0;
       font-size: 13.5px;
       font-weight: 500;
-      color: #8B796A;
+      color: #8D7E71;
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
@@ -141,9 +141,9 @@
     }
 
     .tab.active {
-      color: #4A3E38;
+      color: #554A41;
       font-weight: 600;
-      border-bottom: 2px solid #B89A7E;
+      border-bottom: 2px solid #B8A18C;
     }
 
     /* --- 內容區塊 --- */
@@ -172,11 +172,11 @@
       top: 50px;
       padding: 12px 20px; 
       margin: -16px -20px 16px -20px; 
-      background: rgba(251, 249, 246, 0.96);
+      background: rgba(253, 252, 251, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       z-index: 90;
-      border-bottom: 1px solid rgba(210, 203, 195, 0.4); 
+      border-bottom: 1px solid rgba(225, 220, 214, 0.4); 
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.015);
     }
 
@@ -185,7 +185,7 @@
       display: flex;
       justify-content: space-between;
       align-items: stretch;
-      background: #EBE6E0;
+      background: #F2EFEB;
       padding: 3px;
       border-radius: 99px;
       gap: 2px;
@@ -201,7 +201,7 @@
       padding: 0;
       text-align: center;
       background: transparent;
-      color: #8B796A;
+      color: #8D7E71;
       border: none;
       border-radius: 99px;
       font-size: 12.5px;
@@ -213,9 +213,9 @@
     }
     .sub-tab-btn.active {
       background: #FFFFFF;
-      color: #4A3E38;
+      color: #554A41;
       font-weight: 600;
-      box-shadow: 0 2px 6px rgba(74, 62, 56, 0.08);
+      box-shadow: 0 2px 6px rgba(98, 86, 77, 0.05);
     }
 
     /* --- 資訊卡片 (白底) --- */
@@ -224,20 +224,20 @@
       border-radius: 16px;
       padding: 24px;
       margin-bottom: 16px;
-      box-shadow: 0 4px 20px rgba(74, 62, 56, 0.03);
-      border: 1px solid rgba(235, 230, 224, 0.8);
+      box-shadow: 0 4px 20px rgba(98, 86, 77, 0.02);
+      border: 1px solid rgba(244, 241, 237, 0.8);
     }
 
     .info-card.highlight {
-      background: linear-gradient(145deg, #FFFFFF, #FDFCFB);
-      border-left: 4px solid #B89A7E;
+      background: linear-gradient(145deg, #FFFFFF, #FEFEFE);
+      border-left: 4px solid #B8A18C;
     }
 
     .info-card h3 {
       margin: 0 0 16px 0;
       font-size: 15px;
       font-weight: 600;
-      color: #4A3E38;
+      color: #554A41;
       display: flex;
       align-items: center;
       letter-spacing: 1px;
@@ -248,7 +248,7 @@
       display: inline-block;
       width: 4px;
       height: 14px;
-      background: #B89A7E;
+      background: #B8A18C;
       margin-right: 10px;
       border-radius: 2px;
     }
@@ -259,7 +259,7 @@
 
     .intro-text {
       font-size: 13.5px;
-      color: #6E5F52;
+      color: #73655A;
       margin: 0 0 16px 0;
       line-height: 1.7;
     }
@@ -280,7 +280,7 @@
       padding-left: 18px;
       margin-bottom: 12px;
       font-size: 13.5px;
-      color: #6E5F52;
+      color: #73655A;
       line-height: 1.6;
     }
 
@@ -293,7 +293,7 @@
       position: absolute;
       left: 0;
       top: -1px;
-      color: #B89A7E;
+      color: #B8A18C;
       font-weight: bold;
       font-size: 16px;
     }
@@ -301,9 +301,9 @@
     .section-subtitle {
       font-size: 14px;
       font-weight: 600;
-      color: #8B796A;
+      color: #8D7E71;
       margin: 20px 0 8px 0;
-      border-bottom: 1px dashed #EBE6E0;
+      border-bottom: 1px dashed #F2EFEB;
       padding-bottom: 4px;
     }
     
@@ -314,7 +314,7 @@
     /* --- 價目表專用項目 --- */
     .price-item {
       padding: 12px 0;
-      border-bottom: 1px solid #EBE6E0;
+      border-bottom: 1px solid #F2EFEB;
     }
     .price-item:last-child {
       border-bottom: none;
@@ -329,16 +329,16 @@
     .price-item-name {
       font-size: 14.5px;
       font-weight: 600;
-      color: #4A3E38;
+      color: #554A41;
     }
     .price-item-price {
       font-size: 14.5px;
       font-weight: 600;
-      color: #B89A7E;
+      color: #B8A18C;
     }
     .price-item-desc {
       font-size: 12.5px;
-      color: #8B796A;
+      color: #8D7E71;
       margin: 0;
       line-height: 1.5;
     }
@@ -346,7 +346,7 @@
     /* --- FAQ 專用項目 --- */
     .faq-item {
       margin-bottom: 20px;
-      border-bottom: 1px solid #EBE6E0;
+      border-bottom: 1px solid #F2EFEB;
       padding-bottom: 16px;
     }
     .faq-item:last-child {
@@ -357,7 +357,7 @@
     .faq-q {
       font-size: 14px;
       font-weight: 600;
-      color: #4A3E38;
+      color: #554A41;
       margin-bottom: 8px;
       display: flex;
       align-items: flex-start;
@@ -365,7 +365,7 @@
     }
     .faq-a {
       font-size: 13.5px;
-      color: #6E5F52;
+      color: #73655A;
       line-height: 1.6;
       padding-left: 24px;
     }
@@ -397,7 +397,7 @@
       <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       位置導航
      </a>
-     <a href="https://lin.ee/RycxNGf" target="_blank" class="social-btn" style="background: #4A3E38; color: #FFFFFF; border: none; box-shadow: 0 4px 12px rgba(74,62,56,0.15);">
+     <a href="https://lin.ee/RycxNGf" target="_blank" class="social-btn" style="background: #9E8B7C; color: #FFFFFF; border: none; box-shadow: 0 4px 12px rgba(158,139,124,0.25);">
       <svg class="social-icon" viewBox="0 0 24 24" style="fill: #FFFFFF;"><path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.122.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-5.992z"/></svg>
       預約諮詢
      </a>
@@ -527,13 +527,13 @@
       <div class="info-card">
        <h3>專屬升級與加購</h3>
         <div class="price-item">
-         <div class="price-item-header"><span class="price-item-name">下睫毛</span> <span class="price-item-price">NT$ 500</span></div>
+         <div class="price-item-header"><span class="price-item-name">大眼下睫毛</span> <span class="price-item-price">NT$ 500</span></div>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">睫毛平復</span> <span class="price-item-price">NT$ 500</span></div>
         </div>
         <div class="price-item">
-         <div class="price-item-header"><span class="price-item-name">他店卸除續接</span> <span class="price-item-price">NT$ 200</span></div>
+         <div class="price-item-header"><span class="price-item-name">他店睫毛卸除</span> <span class="price-item-price">NT$ 200</span></div>
         </div>
       </div>
      </div>
@@ -876,5 +876,4 @@
     setupSubTabs('faq-sub-tab', 'sub-tab-panel');
   </script>
 </body>
-</html>```
-
+</html>
