@@ -15,9 +15,13 @@
       margin: 0;
       padding: 0;
       font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang TC', '微軟正黑體', sans-serif;
-      background-color: #F7F5F2; /* 更輕柔的外圍底色 */
-      color: #554A41; /* 微調加深的柔和灰棕色字體 */
+      background-color: #F7F5F2; 
+      color: #3A312B; 
       line-height: 1.6;
+      /* 讓字體邊緣更平滑清晰，提升閱讀體驗 */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     .app-wrapper {
@@ -26,9 +30,9 @@
       width: 100%;
       max-width: 480px;
       margin: 0 auto;
-      background: #FDFCFB; /* 幾乎純白但帶微暖的底色 */
+      background: #FDFCFB; 
       min-height: 100vh;
-      box-shadow: 0 8px 32px rgba(98, 86, 77, 0.03);
+      box-shadow: 0 8px 32px rgba(58, 49, 43, 0.04);
     }
 
     /* --- 上方 Header 區塊 --- */
@@ -43,9 +47,9 @@
 
     .header h1 {
       margin: 0 0 8px 0;
-      font-size: 22px; /* 縮小 */
+      font-size: 25px;
       font-weight: 600;
-      color: #554A41;
+      color: #3A312B; 
       letter-spacing: 4px;
       text-indent: 4px; 
       word-wrap: break-word;
@@ -53,8 +57,8 @@
 
     .header p {
       margin: 0;
-      font-size: 12px; /* 縮小 */
-      color: #8D7E71;
+      font-size: 13px;
+      color: #736458; 
       font-weight: 400;
       letter-spacing: 2px;
       text-indent: 2px; 
@@ -76,11 +80,11 @@
       gap: 6px;
       padding: 8px 16px;
       background: #FFFFFF;
-      border: 1px solid rgba(225, 220, 214, 0.6);
+      border: 1px solid rgba(225, 220, 214, 0.8);
       border-radius: 99px;
       text-decoration: none;
-      color: #73655A;
-      font-size: 12px; /* 縮小 */
+      color: #54483F; 
+      font-size: 13px;
       font-weight: 500;
       transition: all 0.3s ease;
       box-shadow: 0 2px 8px rgba(0,0,0,0.02);
@@ -88,14 +92,14 @@
 
     .social-btn:hover, .social-btn:active {
       background: #FFFFFF;
-      color: #554A41;
-      border-color: #E2DCD5;
+      color: #3A312B;
+      border-color: #D2CBC3;
       transform: translateY(-1px);
     }
 
     .social-icon {
-      width: 15px; /* 稍微縮小圖示搭配小字體 */
-      height: 15px;
+      width: 16px;
+      height: 16px;
       fill: currentColor;
     }
 
@@ -130,9 +134,9 @@
       border: none;
       border-bottom: 2px solid transparent;
       border-radius: 0;
-      font-size: 13px; /* 縮小 */
+      font-size: 14px; /* [整數] 主選單 */
       font-weight: 500;
-      color: #8D7E71;
+      color: #736458; 
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
@@ -141,9 +145,9 @@
     }
 
     .tab.active {
-      color: #554A41;
+      color: #3A312B; 
       font-weight: 600;
-      border-bottom: 2px solid #B8A18C;
+      border-bottom: 2px solid #B8A18C; 
     }
 
     /* --- 內容區塊 --- */
@@ -201,10 +205,10 @@
       padding: 0;
       text-align: center;
       background: transparent;
-      color: #8D7E71;
+      color: #736458; 
       border: none;
       border-radius: 99px;
-      font-size: 12px; /* 縮小 */
+      font-size: 13px; /* [整數] 次選單 */
       font-weight: 500;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -213,9 +217,9 @@
     }
     .sub-tab-btn.active {
       background: #FFFFFF;
-      color: #554A41;
+      color: #3A312B; 
       font-weight: 600;
-      box-shadow: 0 2px 6px rgba(98, 86, 77, 0.05);
+      box-shadow: 0 2px 6px rgba(58, 49, 43, 0.06);
     }
 
     /* --- 資訊卡片 (白底) --- */
@@ -224,8 +228,8 @@
       border-radius: 16px;
       padding: 24px;
       margin-bottom: 16px;
-      box-shadow: 0 4px 20px rgba(98, 86, 77, 0.02);
-      border: 1px solid rgba(244, 241, 237, 0.8);
+      box-shadow: 0 4px 20px rgba(58, 49, 43, 0.03);
+      border: 1px solid rgba(244, 241, 237, 0.9);
     }
 
     .info-card.highlight {
@@ -235,9 +239,9 @@
 
     .info-card h3 {
       margin: 0 0 16px 0;
-      font-size: 15px; /* 縮小 */
+      font-size: 16px; /* [整數] 卡片大標題 */
       font-weight: 600;
-      color: #554A41;
+      color: #3A312B; 
       display: flex;
       align-items: center;
       letter-spacing: 1px;
@@ -247,8 +251,8 @@
       content: '';
       display: inline-block;
       width: 4px;
-      height: 13px; /* 配合標題稍微縮短 */
-      background: #B8A18C;
+      height: 15px;
+      background: #B8A18C; 
       margin-right: 10px;
       border-radius: 2px;
     }
@@ -258,8 +262,8 @@
     }
 
     .intro-text {
-      font-size: 13px; /* 縮小 */
-      color: #73655A;
+      font-size: 14px; /* [整數] 內文說明 */
+      color: #54483F; 
       margin: 0 0 16px 0;
       line-height: 1.7;
     }
@@ -279,8 +283,8 @@
       position: relative;
       padding-left: 18px;
       margin-bottom: 12px;
-      font-size: 13px; /* 縮小 */
-      color: #73655A;
+      font-size: 14px; /* [整數] 條列內文 */
+      color: #54483F; 
       line-height: 1.6;
     }
 
@@ -299,11 +303,11 @@
     }
 
     .section-subtitle {
-      font-size: 13px; /* 縮小 */
+      font-size: 15px; /* [整數] 次標題 */
       font-weight: 600;
-      color: #8D7E71;
+      color: #736458; 
       margin: 20px 0 8px 0;
-      border-bottom: 1px dashed #F2EFEB;
+      border-bottom: 1px dashed #EBE5DF;
       padding-bottom: 4px;
     }
     
@@ -327,18 +331,18 @@
       margin-bottom: 4px;
     }
     .price-item-name {
-      font-size: 14px; /* 縮小 */
+      font-size: 15px; /* [整數] 項目名稱 */
       font-weight: 600;
-      color: #554A41;
+      color: #3A312B; 
     }
     .price-item-price {
-      font-size: 14px; /* 縮小 */
+      font-size: 15px; /* [整數] 價格 */
       font-weight: 600;
-      color: #B8A18C;
+      color: #B8A18C; 
     }
     .price-item-desc {
-      font-size: 12px; /* 縮小 */
-      color: #8D7E71;
+      font-size: 13px; /* [整數] 價格說明 */
+      color: #736458; 
       margin: 0;
       line-height: 1.5;
     }
@@ -355,17 +359,17 @@
       padding-bottom: 0;
     }
     .faq-q {
-      font-size: 14px; /* 縮小 */
+      font-size: 15px; /* [整數] 問題 */
       font-weight: 600;
-      color: #554A41;
+      color: #3A312B; 
       margin-bottom: 8px;
       display: flex;
       align-items: flex-start;
       gap: 6px;
     }
     .faq-a {
-      font-size: 13px; /* 縮小 */
-      color: #73655A;
+      font-size: 14px; /* [整數] 答案 */
+      color: #54483F; 
       line-height: 1.6;
       padding-left: 24px;
     }
@@ -437,7 +441,7 @@
        <ul class="info-list">
         <li>漫恩為個人工作室，為了給您最放鬆的一對一專屬空間，暫不開放攜伴和飲食，謝謝體諒。</li>
         <li>我會提前為您準備好舒適的環境，請「準時抵達」就好，不需特別提早前來。</li>
-        <li>好品質需要足夠的時間，如果當天遲到了，就無法使用優惠折抵，還請見諒。</li>
+        <li>為了維護下一位客人的品質，<strong>若遲到超過 15 分鐘，將視同取消並扣除定金</strong>，敬請見諒。</li>
        </ul>
      </div>
 
@@ -445,8 +449,8 @@
       <h3>預約異動與取消</h3>
        <ul class="info-list">
         <li><strong>改期：</strong>每筆預約可改期 1 次，最晚請在「 2 天前」通知我。</li>
-        <li><strong>取消：</strong>時段都是專屬保留的，付定金後不論任何原因取消，定金將無法退還，這部分還請見諒。</li>
-        <li><strong>臨時狀況：</strong>如果 24 小時內臨時取消或未到，未來將較難為您安排預約，還請理解。</li>
+        <li><strong>取消：</strong>時段都是專屬保留的，付定金後不論任何原因取消，定金將無法退還，這部分再請多多包涵。</li>
+        <li><strong>臨時狀況：</strong>如果 24 小時內臨時取消或未到，未來將較難為您安排預約，敬請理解。</li>
        </ul>
      </div>
 
@@ -455,7 +459,7 @@
        <ul class="info-list">
         <li>為了保留專屬時段，預約都需要先收定金。</li>
         <li>確認預約後，請在 24 小時內匯款，收到定金後，專屬時段就正式為您保留囉。</li>
-        <li>當天做完後，尾款付現或轉帳都可以。</li>
+        <li>當天操作完畢後，<strong>尾款提供現金、轉帳與 LINE Pay 支付</strong>。</li>
        </ul>
      </div>
     </div>
@@ -477,7 +481,7 @@
       
       <div class="info-card">
        <h3>單根扁毛</h3>
-        <p class="intro-text" style="color: #967A5E;">一接一細緻嫁接，柔軟輕透，喜愛自然素顏感的首選。</p>
+        <p class="intro-text" style="color: #736458;">一接一細緻嫁接，材質柔軟輕透，喜愛無重力自然素顏感的首選。</p>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">100 根</span> <span class="price-item-price">NT$ 1,300</span></div>
         </div>
@@ -489,13 +493,13 @@
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">♡接睫後塑形</span> <span class="price-item-price">NT$ 700</span></div>
-         <p class="price-item-desc">結合睫毛拉提技術，改善下垂，瞬間放大雙眼。</p>
+         <p class="price-item-desc">輕柔拉提原生毛，改善下垂困擾，讓眼神更加明亮放大。</p>
         </div>
       </div>
 
       <div class="info-card">
        <h3>仙子束感</h3>
-        <p class="intro-text" style="color: #967A5E;">長短交錯排列，打造根根分明的立體感。</p>
+        <p class="intro-text" style="color: #736458;">運用長短睫毛交錯排列，打造如女團般根根分明的俏皮立體感。</p>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">100 束</span> <span class="price-item-price">NT$ 1,400</span></div>
         </div>
@@ -506,7 +510,7 @@
 
       <div class="info-card">
        <h3>輕柔多根</h3>
-        <p class="intro-text" style="color: #967A5E;">多層次交疊，營造自帶眼線的深邃感。</p>
+        <p class="intro-text" style="color: #736458;">多層次輕柔交疊，營造宛如自帶隱形眼線的深邃濃密感。</p>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">100 束</span> <span class="price-item-price">NT$ 1,400</span></div>
         </div>
@@ -519,7 +523,7 @@
        <h3>中式造型款</h3>
         <div class="price-item" style="border: none; padding-bottom: 0;">
          <div class="price-item-header" style="justify-content: center;">
-          <span class="price-item-name" style="color: #967A5E;">技術進修中，敬請期待</span>
+          <span class="price-item-name" style="color: #736458;">技術進修中，敬請期待</span>
          </div>
         </div>
       </div>
@@ -528,12 +532,15 @@
        <h3>專屬升級與加購</h3>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">大眼下睫毛</span> <span class="price-item-price">NT$ 500</span></div>
+         <p class="price-item-desc">向下延伸眼部視覺比例，讓整體眼型更顯精緻無辜。</p>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">睫毛平復</span> <span class="price-item-price">NT$ 500</span></div>
+         <p class="price-item-desc">安全解除殘留的捲翹度，將原生睫毛恢復平順，讓後續嫁接更服貼持久。</p>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">他店睫毛卸除</span> <span class="price-item-price">NT$ 200</span></div>
+         <p class="price-item-desc">專業卸除殘留的嫁接睫毛，深層清潔且不傷原生毛囊。</p>
         </div>
       </div>
      </div>
@@ -547,12 +554,15 @@
        <h3>睫毛與眉流管理</h3>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">睫毛管理（上睫）</span> <span class="price-item-price">NT$ 1,400</span></div>
+         <p class="price-item-desc">從根部細緻向上拉提，搭配深層滋養，讓原生睫毛呈現自然捲翹與纖長感。</p>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">野生塑眉</span> <span class="price-item-price">NT$ 1,200</span></div>
+         <p class="price-item-desc">無侵入性的毛流矯正，順向梳理出根根分明、立體服貼的自然毛流。</p>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">眉睫雙項管理組合</span> <span class="price-item-price">NT$ 2,200</span></div>
+         <p class="price-item-desc">同時擁有捲翹睫毛與立體毛流，省去日常化妝時間，打造精緻素顏。</p>
         </div>
       </div>
       
@@ -560,42 +570,45 @@
        <h3>專屬升級與加購</h3>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">升級睫毛增黑</span> <span class="price-item-price">NT$ 200</span></div>
+         <p class="price-item-desc">導入頂級增黑精華，讓原生睫毛視覺上更加濃黑、飽滿且充滿光澤。</p>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">睫毛管理（下睫）</span> <span class="price-item-price">NT$ 600</span></div>
+         <p class="price-item-desc">細心調整下睫毛生長方向，使其自然向下延伸，有效放大雙眼（需依原生條件評估）。</p>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">他店睫毛卸除</span> <span class="price-item-price">NT$ 200</span></div>
+         <p class="price-item-desc">安全卸除殘留的睫毛管理或嫁接，深層清潔且不傷原生毛囊。</p>
         </div>
       </div>
      </div>
 
      <div class="sub-tab-panel" id="makeup">
       <div class="info-card highlight">
-        <p class="intro-text">溫和注入天生好氣色，沒有僵硬框架，只留自然輪廓。</p>
+        <p class="intro-text">自然注入天生好氣色，沒有僵硬框架，只留立體輪廓。</p>
       </div>
 
       <div class="info-card">
        <h3>原生感定妝服務</h3>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">空氣柔霧眉</span> <span class="price-item-price">NT$ 8,800</span></div>
-         <p class="price-item-desc">細緻漸層堆疊，像剛刷上眉粉一樣輕盈柔和。</p>
+         <p class="price-item-desc">運用細緻漸層手法堆疊，呈現宛如剛刷上眉粉般輕盈、無邊框的柔和霧感。</p>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">隱形美瞳線</span> <span class="price-item-price">NT$ 6,800</span></div>
-         <p class="price-item-desc">填補睫毛空隙，自然提亮眼神。</p>
+         <p class="price-item-desc">精準填補睫毛根部空隙，不留突兀線條，心機地提亮並深邃眼神。</p>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">透亮水光唇</span> <span class="price-item-price">NT$ 11,800</span></div>
-         <p class="price-item-desc">校正暗沈，自然水潤通透的好氣色。</p>
+         <p class="price-item-desc">細緻校正唇部暗沈與蒼白，為雙唇注入自然通透、宛如天生般的水潤好氣色。</p>
         </div>
       </div>
 
       <div class="info-card">
        <h3>底色淨化</h3>
         <div class="price-item">
-         <div class="price-item-header"><span class="price-item-name">底色淡化（單次）</span> <span class="price-item-price">NT$ 2,500</span></div>
-         <p class="price-item-desc">溫和淡化殘留底色，讓皮膚慢慢恢復乾淨。</p>
+         <div class="price-item-header"><span class="price-item-name">底色淨化（單次）</span> <span class="price-item-price">NT$ 2,500</span></div>
+         <p class="price-item-desc">採用漸進式安全手法，淡化早期殘留的底色框架，讓肌膚慢慢恢復乾淨狀態。</p>
         </div>
       </div>
 
@@ -603,12 +616,15 @@
        <h3>老客專屬補色 / 延續服務</h3>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">一年內回店補色</span> <span class="price-item-price">定價 5 折</span></div>
+         <p class="price-item-desc">專屬老客服務，為漸淡的定妝重新注入色彩，維持最佳精緻度。</p>
         </div>
         <div class="price-item">
          <div class="price-item-header"><span class="price-item-name">兩年內回店補色</span> <span class="price-item-price">定價 7 折</span></div>
+         <p class="price-item-desc">專屬老客服務，重新調整因時間淡化的輪廓與顏色，找回初次施作的立體感。</p>
         </div>
         <div class="price-item">
-         <div class="price-item-header"><span class="price-item-name">淡化續作（第四次起 / 單次）</span> <span class="price-item-price">NT$ 1,500</span></div>
+         <div class="price-item-header"><span class="price-item-name">淨化續作（第四次起 / 單次）</span> <span class="price-item-price">NT$ 1,500</span></div>
+         <p class="price-item-desc">持續為您淡化殘色，陪伴您度過底色淨化的過渡期。</p>
         </div>
       </div>
      </div>
@@ -649,7 +665,7 @@
         <p class="intro-text">現場卸妝會稍微壓縮到您的保養時間，請保持素顏前來，讓精華能更好吸收。</p>
         <ul class="info-list">
          <li>當天請勿畫眼妝及夾睫毛。</li>
-         <li>如果有殘留的假睫毛，現場會幫您卸除（費用另計）。</li>
+         <li>如果有殘留的假睫毛，現場會為您妥善卸除（費用另計）。</li>
          <li>距離上次做睫毛若未滿 6-8 週，請先告知我。</li>
         </ul>
       </div>
@@ -660,8 +676,8 @@
        <h3>原生感定妝前評估與準備</h3>
         <div class="section-subtitle">術前安全評估</div>
         <ul class="info-list">
-         <li>眼唇有傷口或嚴重過敏時，暫不施作。</li>
-         <li>懷孕、哺乳、蟹足腫或免疫系統特殊體質，預約時請先告知。</li>
+         <li><strong>舊底色評估：</strong>若曾在其他店做過定妝，預約前請務必先傳送清晰素顏照，讓我評估是否能直接施作。</li>
+         <li>眼唇有傷口或嚴重過敏時，暫不施作。懷孕、哺乳、蟹足腫或免疫系統特殊體質，預約時請先告知。</li>
          <li>水光唇：有唇皰疹病史的話，建議前 3 天先看皮膚科拿預防藥。</li>
          <li>柔霧眉：生理期時皮膚會比較敏感，建議避開。</li>
         </ul>
@@ -674,15 +690,16 @@
         <div class="section-subtitle">來店當日提醒</div>
         <ul class="info-list">
          <li>當天請睡飽、吃飽，避開咖啡和酒精以免皮膚敏感。</li>
+         <li>若有習慣的眉型或愛用的唇膏顏色，歡迎當天帶來與我討論。</li>
          <li>做完前兩天可能會微微紅腫，建議預留幾天的保養期。</li>
         </ul>
       </div>
       <div class="info-card">
-       <h3>底色淡化須知</h3>
+       <h3>底色淨化須知</h3>
         <div class="section-subtitle">術前了解</div>
         <ul class="info-list">
-         <li>除色是漸進式的，會看底色深淺分次溫和處理（約 3-6 次）。</li>
-         <li>過程溫和不傷毛囊，如果眉毛暫時變白是正常的，幾天後就會恢復。</li>
+         <li>淨化是漸進式的，會看底色深淺分次安全處理（約 3-6 次）。</li>
+         <li>過程細膩不傷毛囊，如果眉毛暫時變白是正常的，幾天後就會恢復。</li>
          <li>操作前一週，眉毛周圍請先停用酸類和去角質。</li>
         </ul>
       </div>
@@ -735,7 +752,7 @@
         <ul class="info-list">
          <li><strong>柔霧眉：</strong>洗臉後壓乾眉毛，薄擦修護霜就好。結痂脫落時千萬不要摳，顏色一個月後會最自然。</li>
          <li><strong>美瞳線：</strong>前 3 天可冷敷舒緩、早晚薄擦修護霜。一週內先不要畫眼妝和戴隱形眼鏡。</li>
-         <li><strong>水光唇：</strong>隨時保持嘴唇滋潤，吃完東西用濕棉片擦乾淨再補修護霜，睡前記得厚敷。一週內別吃太燙或太辣。</li>
+         <li><strong>水光唇：</strong>隨時保持嘴唇滋潤，吃完東西用濕棉片擦乾淨再補修護霜，睡前記得厚敷。<strong>一週內請盡量使用吸管飲水，並避開生食（如生魚片）、帶殼海鮮與辛辣食物，以免引起過敏。</strong></li>
         </ul>
         <div class="section-subtitle">後續預約時機</div>
         <ul class="info-list">
@@ -782,7 +799,7 @@
       <div class="info-card">
        <div class="faq-item">
         <div class="faq-q">Q：跟傳統角蛋白有什麼不一樣？</div>
-        <div class="faq-a">A：這是一項更溫和的升級保養。過程中會特別加入保濕精華，讓睫毛捲翹同時維持健康光澤。</div>
+        <div class="faq-a">A：這是一項更深層且安全的升級保養。過程中會特別加入保濕精華，讓睫毛捲翹同時維持健康光澤。</div>
        </div>
       </div>
      </div>
@@ -795,7 +812,7 @@
        </div>
        <div class="faq-item">
         <div class="faq-q">Q：會有厚重的結痂嗎？</div>
-        <div class="faq-a">A：我的操作手法很溫和，只會有很薄的微屑掉落，不會有傳統的結痂期，做完當下就很自然。</div>
+        <div class="faq-a">A：我的操作手法非常輕柔，只會有很薄的微屑掉落，不會有傳統的結痂期，做完當下就很自然。</div>
        </div>
        <div class="faq-item">
         <div class="faq-q">Q：做完能洗臉化妝嗎？</div>
@@ -809,7 +826,7 @@
       <div class="info-card">
        <div class="faq-item">
         <div class="faq-q">Q：底色淨化一次就能除乾淨嗎？</div>
-        <div class="faq-a">A：因為色素深淺不一，沒辦法一次清空。我會用最溫和的方式分次淡化，次數要看每個人的底色狀況。</div>
+        <div class="faq-a">A：因為色素深淺不一，沒辦法一次清空。我會以最漸進、安全的方式分次淡化，次數要看每個人的底色狀況。</div>
        </div>
        <div class="faq-item">
         <div class="faq-q">Q：淨化後眉毛會變白或掉落嗎？</div>
@@ -877,5 +894,8 @@
   </script>
 </body>
 </html>
+
+
+
 
 
