@@ -1,343 +1,822 @@
 <!DOCTYPE html>
-<html lang="zh-TW" class="scroll-smooth">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>漫恩美學 MANN STUDIO | 質感定妝・日式美睫・眉睫管理</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --color-bg: #FDFCF9;      /* 極致柔和的珍珠白 */
-            --color-primary: #D1BEA8; /* 經典奶茶色 */
-            --color-dark: #3A3532;    /* 溫和的炭灰色 */
-            --color-accent: #E8DFD5;  /* 燕麥底色 */
-        }
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-dark);
-        }
-        h1, h2, h3, .serif-text {
-            font-family: 'Noto Sans TC', sans-serif;
-            font-weight: 500;
-        }
-        .eng-title {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .bg-milktea { background-color: var(--color-primary); }
-        .text-milktea { color: var(--color-primary); }
-        .border-milktea { border-color: var(--color-primary); }
-        .bg-oat { background-color: var(--color-accent); }
-        
-        /* 隱藏捲軸但可滾動 */
-        ::-webkit-scrollbar { width: 0px; background: transparent; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <title>漫恩美學 MANN STUDIO | 專業日式美睫・質感半永久定妝</title>
+  <meta name="description" content="漫恩美學 MANN STUDIO - 專注於慢工細作的日式美睫與質感半永久定妝。">
+  
+  <!-- 引入 Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        /* 優雅淡入動畫 */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-up { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
-    </style>
+  <style>
+    /* --- 核心色彩與變數系統 --- */
+    :root {
+      --bg-body: #F9F8F6;       
+      --bg-card: #FFFFFF;
+      --brand-primary: #947E6D; 
+      --brand-light: #F4EFEB;   
+      
+      --text-main: #332A24;     
+      --text-sub: #665D55;      
+      --text-muted: #998F86;    
+      
+      --divider-color: rgba(148, 126, 109, 0.12); 
+    }
+
+    /* --- 基礎設定 --- */
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Arial", "Noto Sans TC", sans-serif;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, p, ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    .mann-container {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: var(--bg-body);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* --- Header 區塊 --- */
+    .mann-header {
+      padding: 24px 24px 16px; 
+      text-align: center;
+    }
+
+    .mann-header-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.15em;
+      margin-bottom: 6px;
+    }
+
+    .mann-header-subtitle {
+      font-size: 13px;
+      color: var(--brand-primary);
+      letter-spacing: 0.3em;
+      font-weight: 500;
+    }
+
+    /* --- 導覽列 (Tabs) --- */
+    .mann-tabs {
+      display: flex;
+      position: sticky;
+      top: 0;
+      background-color: rgba(249, 248, 246, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10;
+      padding: 10px 16px; 
+      gap: 8px; 
+      border-bottom: 1px solid var(--divider-color);
+      overflow-x: auto;
+      scrollbar-width: none; /* Firefox */
+    }
+    .mann-tabs::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+    
+    .mann-tab {
+      flex: 1;
+      min-width: 80px;
+      text-align: center;
+      padding: 10px 4px; 
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 20px; 
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .mann-tab.active {
+      color: var(--brand-primary);
+      background-color: var(--brand-light); 
+      font-weight: 600;
+    }
+
+    /* --- 內容區塊 --- */
+    .mann-content {
+      padding: 16px 20px 120px; 
+      flex-grow: 1;
+    }
+
+    .mann-tab-pane {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .mann-tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); } 
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- 排版與卡片系統 --- */
+    .mann-section-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-main);
+      text-align: center;
+      margin: 40px 0 20px; 
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .mann-section-title::before,
+    .mann-section-title::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 1px;
+      background-color: var(--brand-primary);
+      opacity: 0.4;
+    }
+
+    .mann-card {
+      background-color: var(--bg-card);
+      border-radius: 16px; 
+      padding: 24px; 
+      margin-bottom: 20px; 
+      box-shadow: 0 4px 20px rgba(148, 126, 109, 0.04); 
+    }
+
+    .mann-sub-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--brand-primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mann-card-desc {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-bottom: 16px;
+    }
+    
+    .mann-card-desc:last-child {
+      margin-bottom: 0;
+    }
+
+    /* --- 列表樣式 --- */
+    ul.mann-list {
+      list-style: none;
+    }
+
+    ul.mann-list li {
+      font-size: 14px;
+      color: var(--text-sub);
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 12px; 
+    }
+
+    ul.mann-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    ul.mann-list li strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    ul.mann-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px; 
+      width: 4px;
+      height: 4px;
+      background-color: var(--brand-primary);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    /* --- 折疊選單 (FAQ 專用) --- */
+    details.mann-accordion {
+      background-color: var(--bg-card);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 10px rgba(148, 126, 109, 0.03);
+      border: 1px solid var(--divider-color);
+      overflow: hidden;
+    }
+
+    details.mann-accordion summary {
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.2s;
+    }
+
+    details.mann-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.mann-accordion summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--brand-primary);
+      font-weight: 300;
+      transition: transform 0.3s ease;
+    }
+
+    details.mann-accordion[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    details.mann-accordion[open] summary {
+      background-color: #FCFAFA;
+      border-bottom: 1px solid var(--divider-color);
+    }
+
+    .mann-accordion-content {
+      padding: 16px 20px;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.8;
+      background-color: #FCFAFA;
+    }
+
+    /* --- 價目表排版 --- */
+    .mann-price-group {
+      margin-bottom: 24px;
+    }
+    .mann-price-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .mann-price-row {
+      display: flex;
+      flex-direction: column;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--divider-color);
+    }
+    .mann-price-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .mann-price-row:first-child {
+      padding-top: 0;
+    }
+
+    .mann-price-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline; 
+    }
+
+    .mann-price-name {
+      font-size: 15px;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .mann-price-value {
+      font-size: 15px;
+      color: var(--brand-primary);
+      font-weight: 600;
+    }
+
+    .mann-price-note {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 4px; 
+      line-height: 1.6;
+    }
+
+    /* --- 輔助 UI 組件 --- */
+    .mann-badge {
+      display: inline-block;
+      font-size: 11px;
+      color: var(--brand-primary);
+      background-color: var(--brand-light); 
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      font-weight: 500;
+      vertical-align: middle;
+    }
+
+    .mann-divider {
+      height: 1px;
+      background-color: var(--divider-color);
+      margin: 24px 0; 
+    }
+
+    .mann-note-box {
+      background-color: #FDFBFA; 
+      padding: 16px; 
+      border-radius: 12px;
+      border: 1px solid var(--divider-color);
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    /* --- 底部浮動按鈕 --- */
+    .mann-bottom-actions {
+      position: fixed;
+      bottom: calc(24px + env(safe-area-inset-bottom, 0px)); 
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 40px); 
+      max-width: 460px;
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .mann-action-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 0; 
+      border-radius: 100px; 
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(148, 126, 109, 0.15);
+    }
+
+    .mann-btn-map {
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--divider-color);
+    }
+
+    .mann-btn-line {
+      background-color: var(--text-main); 
+      color: var(--bg-card);
+      border: 1px solid var(--text-main);
+    }
+
+    .mann-action-btn:active {
+      transform: scale(0.96);
+    }
+  </style>
 </head>
-<body class="antialiased selection:bg-[#D1BEA8] selection:text-white pb-0">
+<body>
 
-    <!-- 質感浮動導覽列 -->
-    <nav class="fixed w-full z-50 top-0 transition-all duration-500 bg-white/80 backdrop-blur-lg border-b border-[#F0EBE1]">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-[22px] font-medium tracking-widest eng-title text-[var(--color-dark)]">
-                MANN STUDIO
-            </div>
-            <a href="#booking" class="text-[13px] font-medium bg-milktea text-white px-6 py-2.5 rounded-full tracking-widest hover:bg-[#BFA991] transition-all duration-300 shadow-sm hover:shadow-md">
-                立即預約
-            </a>
+<div class="mann-container">
+  
+  <header class="mann-header">
+    <h1 class="mann-header-title">MANN STUDIO</h1>
+    <p class="mann-header-subtitle">漫恩美學</p>
+  </header>
+
+  <!-- 導覽列 -->
+  <nav class="mann-tabs">
+    <div class="mann-tab active" data-target="tab-booking-faq">預約須知</div>
+    <div class="mann-tab" data-target="tab-promo">優惠活動</div>
+    <div class="mann-tab" data-target="tab-price">服務價目</div>
+    <div class="mann-tab" data-target="tab-aftercare">保養指南</div>
+  </nav>
+
+  <main class="mann-content">
+    
+    <!-- ==================== 分頁 1：預約須知 & FAQ ==================== -->
+    <div id="tab-booking-faq" class="mann-tab-pane active">
+      
+      <div class="mann-section-title">預約小守則</div>
+      
+      <!-- 拆分區塊 1：預約與定金 -->
+      <div class="mann-card">
+        <h3 class="mann-sub-title">📝 預約與取消規範</h3>
+        <ul class="mann-list">
+          <li>為保留專屬時段，請於 <strong>24 小時內</strong>完成定金匯款，確認收款即預約成功。逾時系統將自動取消。</li>
+          <li>如需更改時間或取消，最晚請於<strong>預約日 3 天前</strong>主動告知。</li>
+          <li>3 天內取消或當日未到，定金恕無法退還或轉讓，且日後可能會婉拒預約。</li>
+          <li>服務完畢後，尾款可使用<strong>現金</strong>或<strong>現場轉帳</strong>。</li>
+        </ul>
+      </div>
+
+      <!-- 拆分區塊 2：時間與空間 -->
+      <div class="mann-card">
+        <h3 class="mann-sub-title">🕰️ 現場與空間維護</h3>
+        <ul class="mann-list">
+          <li>為給您最放鬆的私人空間，未提供提早候位，<strong>請於預約時間準時抵達</strong>即可。</li>
+          <li>遲到 15 分鐘內，將依剩餘時間調整施作內容（原價計費）；<strong>超過 15 分鐘視同取消</strong>，定金不予保留。</li>
+          <li>工作室採全預約制，為維持靜謐品質，<strong>暫不開放攜伴、孩童及寵物陪同</strong>。</li>
+          <li>施作期間建議將手機轉為靜音，好好閉眼休息，能讓作品更加完美。</li>
+        </ul>
+      </div>
+
+      <!-- 拆分區塊 3：行前準備與美感 -->
+      <div class="mann-card">
+        <h3 class="mann-sub-title">💡 行前準備與保固</h3>
+        <ul class="mann-list">
+          <li><strong>美睫準備：</strong>請素眼抵達，避開眼妝、睫毛膏與夾睫毛。建議配戴舒適的透明隱形眼鏡。</li>
+          <li><strong>定妝準備：</strong>預約前一週請停用酸類、亮白保養品。操作潤色唇者請每天厚敷凡士林加強保濕。</li>
+          <li><strong>美睫保固：</strong>施作後 3 日內如有非人為大量脫落，請拍照回傳，將免費安排回補一次。</li>
+          <li><strong>美感聲明：</strong>美感較為主觀，施作前會充分溝通。完成後恕無法以「不習慣」等理由要求退費。完美主義者請先行評估。</li>
+        </ul>
+      </div>
+
+      <div class="mann-section-title" style="margin-top: 48px;">常見問題 Q&A</div>
+      
+      <!-- 使用 Accordion 整理 Q&A，版面乾淨俐落 -->
+      <details class="mann-accordion">
+        <summary>第一次來，不確定適合什麼款式？</summary>
+        <div class="mann-accordion-content">
+          您可以先預約「基本款式」。施作當天，我會根據您的眼型、原生睫毛狀況及日常化妝習慣，現場一對一為您客製專屬設計喔！
         </div>
-    </nav>
+      </details>
 
-    <!-- 視覺首頁區 (Hero Section - 極簡純淨版) -->
-    <section class="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden text-center">
-        <!-- 背景裝飾圓塊 -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] md:w-[60vw] md:h-[60vw] bg-oat rounded-full -z-10 opacity-30 blur-3xl"></div>
+      <details class="mann-accordion">
+        <summary>睫毛嫁接與睫毛管理有什麼不同？</summary>
+        <div class="mann-accordion-content">
+          <strong>「睫毛管理」</strong>是採用溫和修護配方調整原生睫毛的捲翹度，適合喜愛純真自然感的朋友；<strong>「接睫毛」</strong>則是嫁接人工睫毛來增加長度與濃密度。<br><br>做完睫毛管理後，建議至少間隔 4 週以上再預約接睫毛唷！
+        </div>
+      </details>
+
+      <details class="mann-accordion">
+        <summary>睫毛管理就是角蛋白嗎？</summary>
+        <div class="mann-accordion-content">
+          視覺效果相似，但漫恩採用的是新一代<strong>溫和毛髮物理調整技術</strong>，全程使用符合化粧品規範的修護配方，提拉同時導入高濃度膠原，是越保養越健康的頂級毛流護理。
+        </div>
+      </details>
+
+      <details class="mann-accordion">
+        <summary>睫毛大約能維持多久？何時要整理？</summary>
+        <div class="mann-accordion-content">
+          美睫一般約可維持 <strong>4 到 6 週</strong>。想保持濃密完美，建議 3 週內預約回補；超過 4 週則建議「全卸重接」，徹底深層清潔眼周對毛囊更健康。
+        </div>
+      </details>
+
+      <details class="mann-accordion">
+        <summary>霧眉或美瞳線做完會像蠟筆小新嗎？</summary>
+        <div class="mann-accordion-content">
+          漫恩採用極輕柔的表層溫和上色，<strong>做完當下即非常自然，無尷尬過渡期</strong>。大約 3 到 5 天會有微細小脫屑，做好居家保濕清潔即可。
+        </div>
+      </details>
+
+      <details class="mann-accordion">
+        <summary>定妝久了會變紅或變藍嗎？</summary>
+        <div class="mann-accordion-content">
+          一般約可維持 1 至 3 年。漫恩全程使用安全優質的進口植物色乳，隨時間只會自然變淡，<strong>絕對不會留下老氣且難清除的紅、藍底色</strong>。
+        </div>
+      </details>
+
+    </div>
+
+    <!-- ==================== 分頁 2：優惠活動 ==================== -->
+    <div id="tab-promo" class="mann-tab-pane">
+      
+      <div class="mann-section-title">回饋與寵愛計畫</div>
+
+      <div class="mann-card">
+        <h3 class="mann-sub-title">💖 心動分享小回饋</h3>
+        <p class="mann-card-desc">動動手指分享，就能累積美麗基金：</p>
+        <ul class="mann-list">
+          <li><strong>IG 限動打卡：</strong>分享美照並標記漫恩，下次預約美睫/管理<strong>現折 $50</strong>，定妝<strong>現折 $200</strong>！</li>
+          <li><strong>好友推薦禮：</strong>推薦好友成功預約，好友首次消費享折扣。您下一次預約也<strong>同享折扣</strong>（美睫/管理折 $100，定妝折 $500）！</li>
+        </ul>
+      </div>
+
+      <div class="mann-card">
+        <h3 class="mann-sub-title">👑 常客專屬寵愛</h3>
+        <p class="mann-card-desc">習慣定期回來保養的朋友，為您準備了專屬優惠：</p>
+        <ul class="mann-list">
+          <li><strong>美睫常客：</strong>4 週內（28天）回店重接，享<strong>本店卸除免費</strong>（省下 $200）。</li>
+          <li><strong>管理常客：</strong>6 週內（45天）回訪施作眉睫管理，總價<strong>折抵 $100</strong>。</li>
+          <li><strong>跨項新體驗：</strong>凡曾消費過，首次體驗不同大項（美睫/管理）<strong>折 $100</strong>，體驗定妝<strong>折 $300</strong>。</li>
+        </ul>
+      </div>
+
+      <div class="mann-card">
+        <h3 class="mann-sub-title">🎂 專屬生日祝福</h3>
+        <p class="mann-card-desc">生日當月出示證件，即可獲得壽星折扣：</p>
+        <ul class="mann-list">
+          <li><strong>美睫 / 眉睫管理：</strong> 結帳總價<strong>現折 $100</strong></li>
+          <li><strong>半永久定妝：</strong> 結帳總價<strong>現折 $500</strong></li>
+        </ul>
+      </div>
+
+      <div class="mann-note-box">
+        <strong style="color: var(--brand-primary); display: block; margin-bottom: 6px;">💡 貼心小提醒</strong>
+        ※ 限動打卡與好友推薦折抵金等同現金，可與常客/生日禮合併使用，無使用期限。<br>
+        ※ 生日禮與跨項體驗折扣不可合併，系統會自動為您擇優折抵。<br>
+        ※ 漫恩美學保有活動最終解釋與調整權利。
+      </div>
+
+    </div>
+
+    <!-- ==================== 分頁 3：服務價目 ==================== -->
+    <div id="tab-price" class="mann-tab-pane">
+      
+      <!-- 區塊 1: 特色升級 -->
+      <div class="mann-section-title">三大技術升級</div>
+      <div class="mann-card" style="border: 1px solid var(--brand-light); background: #FCFAFA;">
+        <div class="mann-price-group">
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">零等待期鎖固精華 <span class="mann-badge">全項標配</span></span>
+            </div>
+            <span class="mann-price-note">日本進口優質黑膠與鎖固配方，嫁接完當下即刻安全固化，回家可立刻洗臉。</span>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">持久極致的 LED 光固 <span class="mann-badge">加購 +$300</span></span>
+            </div>
+            <span class="mann-price-note">抗油抗汗全面提升，低敏溫和，容易出油膚質、敏感肌與孕婦皆可安心選擇！</span>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">嫁接後塑形 <span class="mann-badge">加購 +$1,000</span></span>
+            </div>
+            <span class="mann-price-note">專為下垂與雜亂毛流設計！將真假睫毛完美向上拉提定型，告別兩層分岔。</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 區塊 2: 美睫設計 -->
+      <div class="mann-section-title">👁️ 日式美睫設計</div>
+      <div class="mann-card">
+        <p class="mann-card-desc" style="margin-bottom: 20px;">
+          升級極致輕盈無重力頂級柔軟毛（霧黑 / 可可）。款式設計將於現場客製討論。
+        </p>
+        <div class="mann-price-group">
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">100根 (清新)</span>
+              <span class="mann-price-value">$1,300</span>
+            </div>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">120根 (自然)</span>
+              <span class="mann-price-value">$1,500</span>
+            </div>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">140根 (精緻) <span class="mann-badge" style="background:#f0e3da;">人氣</span></span>
+              <span class="mann-price-value">$1,700</span>
+            </div>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">160根 (深邃)</span>
+              <span class="mann-price-value">$1,900</span>
+            </div>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">下睫毛嫁接</span>
+              <span class="mann-price-value">+$500</span>
+            </div>
+          </div>
+        </div>
         
-        <div class="max-w-3xl mx-auto px-6 animate-fade-up z-10">
-            <p class="text-[13px] tracking-[0.3em] text-[#9A8F83] mb-8 eng-title italic text-xl">Aesthetics & Eyelash</p>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl leading-[1.4] mb-8 serif-text text-[var(--color-dark)]">
-                每天都<br>剛剛好的漂亮
-            </h1>
-            <p class="text-[18px] md:text-xl text-[#7A7065] mb-10 font-light tracking-wider">
-                陪您迎接每一個從容美好的日常。
-            </p>
-            <div class="w-12 h-px bg-milktea mx-auto mb-10"></div>
-            <p class="text-base md:text-[17px] text-[#8C8276] leading-relaxed font-light max-w-sm mx-auto">
-                隱身於台北大安區的溫馨小空間。<br>
-                在這裡沒有拘束，只有像來找朋友般輕鬆自在的時光。<br>漫恩採全預約制，用心為您打造專屬的精緻細節 🤍
-            </p>
+        <div class="mann-divider"></div>
+        <h3 class="mann-sub-title">✨ 精緻回補方案</h3>
+        <div class="mann-price-group">
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">3 週內（21天內）回補</span>
+              <span class="mann-price-value">原項 85 折</span>
+            </div>
+            <span class="mann-price-note">※ 補睫最佳黃金期，超過 21 天或殘留量低於 40% 建議重新嫁接。僅限上睫毛。</span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- 服務項目區 (Menu Section - 精品菜單版) -->
-    <section id="menu" class="py-24 bg-white relative">
-        <div class="max-w-3xl mx-auto px-6">
-            <!-- 區塊標題 -->
-            <div class="text-center mb-20 animate-fade-up">
-                <!-- 替換 Our 為 Bespoke (專屬訂製) -->
-                <p class="eng-title italic text-milktea text-[26px] mb-2">Bespoke Services</p>
-                <h2 class="text-[28px] md:text-3xl tracking-widest serif-text text-[var(--color-dark)] mb-4">漫恩服務訂製</h2>
-                <div class="w-px h-16 bg-milktea mx-auto"></div>
+      <!-- 區塊 3: 眉睫管理 -->
+      <div class="mann-section-title">🌿 眉睫健康管理</div>
+      <div class="mann-card">
+        <p class="mann-card-desc" style="margin-bottom: 20px;">
+          搭配高濃度修護精華，溫和調整原生毛髮方向與捲翹度。
+        </p>
+        <div class="mann-price-group">
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">睫毛管理－上睫毛</span>
+              <span class="mann-price-value">$1,500</span>
             </div>
-
-            <!-- 項目 1: 日式美睫 -->
-            <div class="mb-16 bg-[var(--color-bg)] p-10 md:p-16 rounded-[2rem] border border-[#F0EBE1] shadow-sm animate-fade-up delay-100 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D1BEA8] to-transparent opacity-30"></div>
-                
-                <div class="text-center mb-10">
-                    <h3 class="text-[22px] mb-2 serif-text tracking-wider text-[var(--color-dark)] flex items-center justify-center gap-3">
-                        日式美睫訂製
-                    </h3>
-                    <p class="text-[13px] text-[#9A8F83] font-light tracking-widest">EYELASH DESIGN</p>
-                </div>
-                
-                <div class="space-y-6 max-w-xl mx-auto">
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">100根 (清新)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$1,300</span>
-                    </div>
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">120根 (自然)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$1,500</span>
-                    </div>
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">140根 (精緻)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$1,700</span>
-                    </div>
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">160根 (深邃)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$1,900</span>
-                    </div>
-                    <div class="flex justify-between items-baseline pt-2">
-                        <span class="tracking-widest text-milktea font-medium text-base">精緻回補 (3週內)</span>
-                        <span class="text-milktea font-light text-[15px]">請洽系統</span>
-                    </div>
-                </div>
-                <div class="text-center mt-12">
-                    <p class="text-[14px] text-[#8C8276] font-light leading-relaxed inline-flex items-center bg-white px-6 py-3 rounded-full shadow-sm border border-gray-50">
-                        ※ 款式與毛色，於現場與漫恩討論即可。
-                    </p>
-                </div>
+            <span class="mann-price-note">維持 6-8 週。若有殘留假睫毛，需勾選卸除項目。</span>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">睫毛管理－下睫毛</span>
+              <span class="mann-price-value">$500</span>
             </div>
-
-            <!-- 項目 2: 眉睫管理 -->
-            <div class="mb-16 bg-[var(--color-bg)] p-10 md:p-16 rounded-[2rem] border border-[#F0EBE1] shadow-sm animate-fade-up delay-200 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D1BEA8] to-transparent opacity-30"></div>
-
-                <div class="text-center mb-10">
-                    <h3 class="text-[22px] mb-2 serif-text tracking-wider text-[var(--color-dark)] flex items-center justify-center gap-3">
-                        眉睫健康管理
-                    </h3>
-                    <p class="text-[13px] text-[#9A8F83] font-light tracking-widest">LASH & BROW LIFT</p>
-                </div>
-                
-                <div class="space-y-6 max-w-xl mx-auto">
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">睫毛管理 (上睫毛)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$1,500</span>
-                    </div>
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">睫毛管理 (下睫毛)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$1,000</span>
-                    </div>
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">睫毛管理 (上＋下睫毛)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$2,000</span>
-                    </div>
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">野生眉 (毛流矯正)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$1,300</span>
-                    </div>
-                    <div class="flex justify-between items-baseline pt-2">
-                        <span class="tracking-widest text-milktea font-medium text-base">常客保養 (6週內)</span>
-                        <span class="text-milktea font-light text-[15px]">享專屬折扣</span>
-                    </div>
-                </div>
-                
-                <!-- 精緻的備註區塊 (保留升級精華的說明) -->
-                <div class="text-center mt-12">
-                    <p class="text-[14px] text-[#8C8276] font-light leading-relaxed inline-flex flex-col md:flex-row items-center gap-2 bg-white px-6 py-3 rounded-full shadow-sm border border-gray-50">
-                        <span>※ 睫毛捲度依眼型客製化設計。</span>
-                        <span class="hidden md:inline">｜</span>
-                        <span class="text-[#D1BEA8]">※ 療程皆免費升級「深邃增黑精華」✨</span>
-                    </p>
-                </div>
+            <span class="mann-price-note">溫和向下重塑眼睫毛方向，放大雙眼。</span>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">野生眉 (毛流矯正)</span>
+              <span class="mann-price-value">$1,300</span>
             </div>
-
-            <!-- 項目 3: 質感定妝 -->
-            <div class="mb-16 bg-[var(--color-bg)] p-10 md:p-16 rounded-[2rem] border border-[#F0EBE1] shadow-sm animate-fade-up delay-300 relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D1BEA8] to-transparent opacity-30"></div>
-
-                <div class="text-center mb-10">
-                    <h3 class="text-[22px] mb-2 serif-text tracking-wider text-[var(--color-dark)] flex items-center justify-center gap-3">
-                        質感半永久定妝
-                    </h3>
-                    <p class="text-[13px] text-[#9A8F83] font-light tracking-widest">SEMI-PERMANENT MAKEUP</p>
-                </div>
-                
-                <div class="space-y-6 max-w-xl mx-auto">
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">柔霧眉 (初次定妝)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$8,800</span>
-                    </div>
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">美瞳線 (初次定妝)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$6,800</span>
-                    </div>
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">潤色唇 (初次定妝)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$11,800</span>
-                    </div>
-                    <div class="flex justify-between items-baseline border-b border-gray-100 pb-3 group hover:border-[#D1BEA8] transition-colors">
-                        <span class="tracking-widest font-light text-base">溫和淡色 (殘留眉色淡化)</span>
-                        <span class="text-gray-500 font-light serif-text text-base">NT$2,500</span>
-                    </div>
-                    <div class="flex justify-between items-baseline pt-2">
-                        <span class="tracking-widest text-milktea font-medium text-base">年度補色 (1年/2年內)</span>
-                        <span class="text-milktea font-light text-[15px]">享專屬優惠</span>
-                    </div>
-                </div>
-                <div class="text-center mt-12">
-                    <p class="text-[14px] text-[#8C8276] font-light leading-relaxed inline-flex items-center bg-white px-6 py-3 rounded-full shadow-sm border border-gray-50">
-                        ※ 初次定妝皆享 3 個月內免費微調補色一次。
-                    </p>
-                </div>
-            </div>
+            <span class="mann-price-note">維持 4-6 週，隨手一刷即有野生澎鬆感。</span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- 加購項目區 (Addons Section) -->
-    <section class="py-16 bg-[#FAF8F5]">
-        <div class="max-w-4xl mx-auto px-6">
-            <h3 class="text-center text-[20px] serif-text tracking-widest text-[var(--color-dark)] mb-12 flex items-center justify-center gap-4">
-                <span class="w-12 h-px bg-[#D1BEA8]"></span>
-                進階美麗加購
-                <span class="w-12 h-px bg-[#D1BEA8]"></span>
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 max-w-3xl mx-auto">
-                <div class="flex justify-between items-center border-b border-[#EAE3DB] pb-3">
-                    <span class="font-light tracking-wider text-base">LED 光固技術</span>
-                    <span class="serif-text text-gray-500 text-base">+$300</span>
-                </div>
-                <div class="flex justify-between items-center border-b border-[#EAE3DB] pb-3">
-                    <span class="font-light tracking-wider text-base">下睫毛嫁接</span>
-                    <span class="serif-text text-gray-500 text-base">+$500</span>
-                </div>
-                <div class="flex justify-between items-center border-b border-[#EAE3DB] pb-3">
-                    <span class="font-light tracking-wider text-base">嫁接後塑形</span>
-                    <span class="serif-text text-gray-500 text-base">+$1,000</span>
-                </div>
-                <div class="flex justify-between items-center border-b border-[#EAE3DB] pb-3">
-                    <span class="font-light tracking-wider text-base">精緻升級組合 (LED+塑形)</span>
-                    <span class="serif-text text-gray-500 text-base">+$1,000</span>
-                </div>
-                <div class="flex justify-between items-center border-b border-[#EAE3DB] pb-3">
-                    <span class="font-light tracking-wider text-base">定型防護睫毛雨衣</span>
-                    <span class="serif-text text-gray-500 text-base">$620</span>
-                </div>
-                <div class="flex justify-between items-center border-b border-[#EAE3DB] pb-3">
-                    <span class="font-light tracking-wider text-base">深層賦活睫毛生長液</span>
-                    <span class="serif-text text-gray-500 text-base">$950</span>
-                </div>
+      <!-- 區塊 4: 半永久定妝 -->
+      <div class="mann-section-title">💄 質感半永久定妝</div>
+      <div class="mann-card">
+        <p class="mann-card-desc" style="margin-bottom: 20px;">
+          使用進口安全色乳，首次預約享 3 個月內免費微調補色。
+        </p>
+        <div class="mann-price-group">
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">美瞳線</span>
+              <span class="mann-price-value">$6,800</span>
             </div>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">柔霧眉</span>
+              <span class="mann-price-value">$8,800</span>
+            </div>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">潤色唇</span>
+              <span class="mann-price-value">$11,800</span>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- 注意事項區 (Booking Rules) -->
-    <section id="booking" class="py-24 bg-white">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <p class="eng-title italic text-milktea text-[26px] mb-2">Notice</p>
-                <h2 class="text-[28px] md:text-3xl tracking-widest serif-text text-[var(--color-dark)] mb-6">預約小叮嚀</h2>
-                <p class="text-[#8C8276] font-light leading-relaxed text-[15px]">為了給您最完美、最放鬆的服務體驗<br>再麻煩您幫我留意以下幾點預約小約定喔 🤍</p>
+        <div class="mann-divider"></div>
+        <h3 class="mann-sub-title">✨ 年度保養補色</h3>
+        <div class="mann-price-group">
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">1年內年度補色</span>
+              <span class="mann-price-value">原價 5 折</span>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- 卡片 1 -->
-                <div class="bg-oat/20 p-10 rounded-2xl border border-transparent hover:border-[#E8DFD5] transition-colors relative">
-                    <div class="text-milktea eng-title italic text-2xl mb-2 text-center opacity-70">01</div>
-                    <h4 class="text-[18px] serif-text mb-6 tracking-wider text-center border-b border-[#E8DFD5] pb-4">預約與時間</h4>
-                    <ul class="space-y-6 text-[14px] text-[#7A7065] font-light leading-relaxed">
-                        <li><span class="font-medium text-[var(--color-dark)] block mb-1.5 text-[15px]">預約時段保留</span>預約後請於期限內完成「定金匯款」，收到款項後就會為您專屬保留。</li>
-                        <li><span class="font-medium text-[var(--color-dark)] block mb-1.5 text-[15px]">更改與取消</span>若需調整時間，最晚請於預約日「 3 天前」告知。臨時取消或無故未到，定金無法退還。</li>
-                        <li><span class="font-medium text-[var(--color-dark)] block mb-1.5 text-[15px]">準時抵達最完美</span>不開放提早候位，當天請準時抵達即可。遲到逾 15 分鐘將視同取消並扣除定金。</li>
-                    </ul>
-                </div>
-
-                <!-- 卡片 2 -->
-                <div class="bg-oat/20 p-10 rounded-2xl border border-transparent hover:border-[#E8DFD5] transition-colors relative">
-                    <div class="text-milktea eng-title italic text-2xl mb-2 text-center opacity-70">02</div>
-                    <h4 class="text-[18px] serif-text mb-6 tracking-wider text-center border-b border-[#E8DFD5] pb-4">空間與安全</h4>
-                    <ul class="space-y-6 text-[14px] text-[#7A7065] font-light leading-relaxed">
-                        <li><span class="font-medium text-[var(--color-dark)] block mb-1.5 text-[15px]">寧靜的專屬空間</span>為維持操作安全與品質，暫不開放攜伴、孩童或寵物陪同。</li>
-                        <li><span class="font-medium text-[var(--color-dark)] block mb-1.5 text-[15px]">貼心健康評估</span>若近期有安排臉部醫美、懷孕中或有特殊體質，請主動告知。</li>
-                        <li><span class="font-medium text-[var(--color-dark)] block mb-1.5 text-[15px]">睡個美容覺</span>施作期間建議手機轉靜音，您的眼皮越放鬆不跳動，成品就會越精緻！</li>
-                    </ul>
-                </div>
-
-                <!-- 卡片 3 -->
-                <div class="bg-oat/20 p-10 rounded-2xl border border-transparent hover:border-[#E8DFD5] transition-colors relative">
-                    <div class="text-milktea eng-title italic text-2xl mb-2 text-center opacity-70">03</div>
-                    <h4 class="text-[18px] serif-text mb-6 tracking-wider text-center border-b border-[#E8DFD5] pb-4">變美前準備</h4>
-                    <ul class="space-y-6 text-[14px] text-[#7A7065] font-light leading-relaxed">
-                        <li><span class="font-medium text-[var(--color-dark)] block mb-1.5 text-[15px]">美睫請素眼</span>當天請保持眼部乾淨，勿夾睫毛、刷睫毛膏或畫眼妝，接睫才會最牢固。</li>
-                        <li><span class="font-medium text-[var(--color-dark)] block mb-1.5 text-[15px]">定妝請保濕</span>前一週暫停使用酸類/美白保養品。預約唇部者請提早一週勤勞厚敷護唇膏。</li>
-                    </ul>
-                </div>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">2年內年度補色</span>
+              <span class="mann-price-value">原價 7 折</span>
             </div>
-
-            <!-- 預約按鈕區 -->
-            <div class="mt-24 text-center">
-                <p class="text-[15px] text-[#8C8276] mb-8 font-light tracking-widest leading-relaxed">
-                    確認送出預約，即代表同意以上小約定。<br>非常期待能為您服務 🤍
-                </p>
-                <!-- 綁定夯客預約系統連結 -->
-                <a href="https://liff.line.me/2006201379-enAqZGx7" class="inline-block bg-[var(--color-dark)] text-white px-14 py-5 rounded-full text-[15px] tracking-[0.2em] shadow-xl hover:bg-[#2A2624] hover:scale-105 transition-all duration-500">
-                    我已閱讀，開始預約
-                </a>
-            </div>
+            <span class="mann-price-note">※ 超過 2 年或他店作品，將以重新施作原價計費。</span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- 頁尾 (Footer) -->
-    <footer class="bg-[var(--color-dark)] text-white py-16">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="eng-title text-[26px] tracking-widest mb-6">MANN STUDIO</div>
-            <p class="text-[13px] text-gray-400 font-light tracking-[0.2em] mb-10">質感定妝 ｜ 日式美睫 ｜ 眉睫管理</p>
-            <div class="flex justify-center gap-6">
-                <!-- IG 專屬圖示 (原生 SVG 確保永不破圖) -->
-                <a href="https://www.instagram.com/mann___studio" target="_blank" class="w-11 h-11 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:bg-white hover:text-[var(--color-dark)] transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                    </svg>
-                </a>
-                <!-- LINE 官方專屬圖示 (帶有原廠綠色 Hover 效果) -->
-                <a href="https://lin.ee/TH1tETy" target="_blank" class="w-11 h-11 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:bg-[#06C755] hover:border-[#06C755] hover:text-white transition-all duration-300">
-                    <svg viewBox="0 0 24 24" class="w-[22px] h-[22px]" fill="currentColor">
-                        <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-5.992z"/>
-                    </svg>
-                </a>
+      <!-- 區塊 5: 其他服務 (卸除/保養品/淨色) -->
+      <div class="mann-section-title">🧴 其他服務與保養</div>
+      <div class="mann-card">
+        <div class="mann-price-group">
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">本店睫毛卸除</span>
+              <span class="mann-price-value">$200</span>
             </div>
-            <p class="text-[11px] text-gray-500 mt-14 tracking-widest font-light">© 2026 MANN STUDIO. ALL RIGHTS RESERVED.</p>
+            <span class="mann-price-note">4週內回店重接享免卸除費。</span>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">他店睫毛卸除</span>
+              <span class="mann-price-value">$300</span>
+            </div>
+            <span class="mann-price-note">LED 特殊膠或殘留量極大，將酌收 $100-$200 處理費。</span>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">溫和淨色 (殘留眉色)</span>
+              <span class="mann-price-value">$2,500 / 次</span>
+            </div>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">防護睫毛雨衣</span>
+              <span class="mann-price-value">$620</span>
+            </div>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">深層睫毛滋養液</span>
+              <span class="mann-price-value">$950</span>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <!-- 初始化 Icons -->
-    <script>
-        lucide.createIcons();
-    </script>
+    </div>
+
+    <!-- ==================== 分頁 4：保養指南 ==================== -->
+    <div id="tab-aftercare" class="mann-tab-pane">
+      
+      <div class="mann-section-title">日式美睫居家指南</div>
+      <div class="mann-card">
+        <h3 class="mann-sub-title">🫧 溫柔潔淨，健康持久</h3>
+        <ul class="mann-list">
+          <li><strong>當天可洗臉：</strong>引進日本頂級鎖固技術，回家後不需等待，可立刻洗臉洗澡。</li>
+          <li><strong>天天清潔眼周：</strong>請打破「接睫毛不能碰水」的觀念！清洗皮脂與髒污能防止黑膠被分解，這才是持久的祕密。</li>
+          <li><strong>清潔口訣：</strong>使用無油洗顏產品，敷上細緻泡沫，用指腹由上往下順向輕清（勿左右搓揉），以常溫水溫柔潑洗。</li>
+          <li><strong>吸乾與梳理：</strong>洗後用洗臉巾「輕壓」吸乾水分。全乾後，用小睫毛刷順向梳理即可恢復仙子束感。</li>
+        </ul>
+      </div>
+
+      <div class="mann-section-title">眉睫管理居家指南</div>
+      <div class="mann-card">
+        <h3 class="mann-sub-title">✨ 完美毛流定型法寶</h3>
+        <ul class="mann-list">
+          <li>施作後 <strong>24 小時內</strong>請維持毛髮乾燥，避開溫泉或蒸氣，讓捲度完美定型。</li>
+          <li>平常可正常化妝、刷睫毛膏。卸妝時順著毛髮生長方向輕柔卸除即可。</li>
+          <li>建議每天早晚洗臉後，搭配雨衣或滋養精華液順向整理，毛流會維持得又亮又翹！</li>
+        </ul>
+      </div>
+
+      <div class="mann-section-title">半永久定妝居家指南</div>
+      <div class="mann-card">
+        <h3 class="mann-sub-title">💧 潔淨修護 (Day 1-3)</h3>
+        <ul class="mann-list">
+          <li><strong>當天可洗臉：</strong>用乾淨清水輕潑操作部位，帶走分泌物與油脂，防範產生厚重硬痂（留色的關鍵）。</li>
+          <li><strong>保持乾爽與保濕：</strong>洗後立即用洗臉巾「輕壓」吸乾。避開酸類保養品，定時薄擦專用潤澤產品。</li>
+          <li>一週內避免前往游泳池、溫泉、三溫暖，並避開大量流汗的運動。</li>
+        </ul>
+        <div class="mann-divider" style="margin: 16px 0;"></div>
+        <h3 class="mann-sub-title">🍂 微屑代謝期 (Day 3-5)</h3>
+        <ul class="mann-list">
+          <li>操作部位會形成薄如蟬翼的細小微屑並自然脫落。</li>
+          <li>微癢是正常修復現象，<strong>千萬不要摳抓或撕除皮屑</strong>，讓它自然掉落顏色才會均勻。</li>
+          <li>期間請持續溫柔洗臉、吸乾並薄擦潤澤產品。待顏色變淡後，可預約年度補色微調。</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- 底部固定按鈕 -->
+  <div class="mann-bottom-actions">
+    <a href="https://maps.app.goo.gl/pzPdsQbYmLPvvtoT7?g_st=ic" target="_blank" class="mann-action-btn mann-btn-map">工作室位置</a>
+    <a href="https://lin.ee/RycxNGf" target="_blank" class="mann-action-btn mann-btn-line">LINE 預約</a>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const tabs = document.querySelectorAll('.mann-tab');
+    const panes = document.querySelectorAll('.mann-tab-pane');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabs.forEach(t => t.classList.remove('active'));
+        panes.forEach(p => p.classList.remove('active'));
+
+        this.classList.add('active');
+        const targetId = this.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+        
+        this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
+
+
+
