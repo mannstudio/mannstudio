@@ -121,7 +121,7 @@
 
     /* --- 內容區塊 --- */
     .mann-content {
-      padding: 16px 20px 120px; 
+      padding: 16px 20px 120px; /* 增加底部緩衝空間 */
       flex-grow: 1;
     }
 
@@ -355,6 +355,7 @@
     /* --- 底部浮動按鈕 --- */
     .mann-bottom-actions {
       position: fixed;
+      /* 修正：加入相容性更好的安全距離寫法，避免被手機底部導覽列擋住 */
       bottom: calc(24px + env(safe-area-inset-bottom, 0px)); 
       left: 50%;
       transform: translateX(-50%);
@@ -421,7 +422,6 @@
       
       <div class="mann-section-title">預約小守則</div>
       
-      <!-- 拆分區塊 1：預約與定金 -->
       <div class="mann-card">
         <h3 class="mann-sub-title">📝 預約與取消規範</h3>
         <ul class="mann-list">
@@ -432,7 +432,6 @@
         </ul>
       </div>
 
-      <!-- 拆分區塊 2：時間與空間 -->
       <div class="mann-card">
         <h3 class="mann-sub-title">🕰️ 現場與空間維護</h3>
         <ul class="mann-list">
@@ -443,7 +442,6 @@
         </ul>
       </div>
 
-      <!-- 拆分區塊 3：行前準備與美感 -->
       <div class="mann-card">
         <h3 class="mann-sub-title">💡 行前準備與保固</h3>
         <ul class="mann-list">
@@ -456,7 +454,6 @@
 
       <div class="mann-section-title" style="margin-top: 48px;">常見問題 Q&A</div>
       
-      <!-- 使用 Accordion 整理 Q&A，版面乾淨俐落 -->
       <details class="mann-accordion">
         <summary>第一次來，不確定適合什麼款式？</summary>
         <div class="mann-accordion-content">
@@ -518,17 +515,7 @@
         <p class="mann-card-desc">動動手指分享，就能累積美麗基金：</p>
         <ul class="mann-list">
           <li><strong>IG 限動打卡：</strong>分享美照並標記漫恩，下次預約美睫/管理<strong>現折 $50</strong>，定妝<strong>現折 $200</strong>！</li>
-          <li><strong>好友推薦禮：</strong>推薦好友成功預約，好友首次消費享折扣。您下一次預約也<strong>同享折扣</strong>（美睫/管理折 $100，定妝折 $500）！</li>
-        </ul>
-      </div>
-
-      <div class="mann-card">
-        <h3 class="mann-sub-title">👑 常客專屬寵愛</h3>
-        <p class="mann-card-desc">習慣定期回來保養的朋友，為您準備了專屬優惠：</p>
-        <ul class="mann-list">
-          <li><strong>美睫常客：</strong>4 週內（28天）回店重接，享<strong>本店卸除免費</strong>（省下 $200）。</li>
-          <li><strong>管理常客：</strong>6 週內（45天）回訪施作眉睫管理，總價<strong>折抵 $100</strong>。</li>
-          <li><strong>跨項新體驗：</strong>凡曾消費過，首次體驗不同大項（美睫/管理）<strong>折 $100</strong>，體驗定妝<strong>折 $300</strong>。</li>
+          <li><strong>好友推薦禮：</strong>推薦好友成功預約，好友首次消費即享上述同等折扣。您下一次預約也為您準備了<strong>同享折扣回饋</strong>（美睫/管理折 $50，定妝折 $200）！大家一起變漂亮。</li>
         </ul>
       </div>
 
@@ -543,8 +530,7 @@
 
       <div class="mann-note-box">
         <strong style="color: var(--brand-primary); display: block; margin-bottom: 6px;">💡 貼心小提醒</strong>
-        ※ 限動打卡與好友推薦折抵金等同現金，可與常客/生日禮合併使用，無使用期限。<br>
-        ※ 生日禮與跨項體驗折扣不可合併，系統會自動為您擇優折抵。<br>
+        ※ 限動打卡與好友推薦折抵金等同現金，可與生日禮合併使用，無使用期限。<br>
         ※ 漫恩美學保有活動最終解釋與調整權利。
       </div>
 
@@ -553,7 +539,6 @@
     <!-- ==================== 分頁 3：服務價目 ==================== -->
     <div id="tab-price" class="mann-tab-pane">
       
-      <!-- 區塊 1: 特色升級 -->
       <div class="mann-section-title">三大技術升級</div>
       <div class="mann-card" style="border: 1px solid var(--brand-light); background: #FCFAFA;">
         <div class="mann-price-group">
@@ -578,7 +563,6 @@
         </div>
       </div>
 
-      <!-- 區塊 2: 美睫設計 -->
       <div class="mann-section-title">👁️ 日式美睫設計</div>
       <div class="mann-card">
         <p class="mann-card-desc" style="margin-bottom: 20px;">
@@ -630,7 +614,6 @@
         </div>
       </div>
 
-      <!-- 區塊 3: 眉睫管理 -->
       <div class="mann-section-title">🌿 眉睫健康管理</div>
       <div class="mann-card">
         <p class="mann-card-desc" style="margin-bottom: 20px;">
@@ -668,7 +651,6 @@
         </div>
       </div>
 
-      <!-- 區塊 4: 半永久定妝 -->
       <div class="mann-section-title">💄 質感半永久定妝</div>
       <div class="mann-card">
         <p class="mann-card-desc" style="margin-bottom: 20px;">
@@ -714,25 +696,40 @@
         </div>
       </div>
 
-      <!-- 區塊 5: 其他服務 (卸除/保養品/淨色) -->
       <div class="mann-section-title">🧴 其他服務與保養</div>
       <div class="mann-card">
         <div class="mann-price-group">
+          
           <div class="mann-price-row">
-            <div class="mann-price-header">
-              <span class="mann-price-name">本店睫毛卸除</span>
-              <span class="mann-price-value">$200</span>
+            <div class="mann-price-header" style="margin-bottom: 4px;">
+              <span class="mann-price-name" style="font-weight: 600; color: var(--brand-primary);">本店睫毛卸除</span>
             </div>
-            <span class="mann-price-note">4週內回店重接享免卸除費。</span>
-          </div>
-          <div class="mann-price-row">
             <div class="mann-price-header">
-              <span class="mann-price-name">他店睫毛卸除</span>
-              <span class="mann-price-value">$300</span>
+              <span class="mann-price-note" style="margin-top: 0;">・卸除並續接</span>
+              <span class="mann-price-value" style="font-size: 14px;">FREE</span>
             </div>
-            <span class="mann-price-note">LED 特殊膠或殘留量極大，將酌收 $100-$200 處理費。</span>
+            <div class="mann-price-header" style="margin-top: 4px;">
+              <span class="mann-price-note" style="margin-top: 0;">・純卸除 (不續接)</span>
+              <span class="mann-price-value" style="font-size: 14px; color: var(--text-sub); font-weight: 500;">$300</span>
+            </div>
           </div>
+
           <div class="mann-price-row">
+            <div class="mann-price-header" style="margin-bottom: 4px;">
+              <span class="mann-price-name" style="font-weight: 600; color: var(--brand-primary);">他店睫毛卸除</span>
+            </div>
+            <div class="mann-price-header">
+              <span class="mann-price-note" style="margin-top: 0;">・卸除並續接</span>
+              <span class="mann-price-value" style="font-size: 14px; color: var(--text-sub); font-weight: 500;">$300</span>
+            </div>
+            <div class="mann-price-header" style="margin-top: 4px;">
+              <span class="mann-price-note" style="margin-top: 0;">・純卸除 (不續接)</span>
+              <span class="mann-price-value" style="font-size: 14px; color: var(--text-sub); font-weight: 500;">$500</span>
+            </div>
+            <span class="mann-price-note" style="margin-top: 8px;">※ LED 特殊膠或殘留量極大，將酌收 $100-$200 處理費。</span>
+          </div>
+
+          <div class="mann-price-row" style="margin-top: 12px;">
             <div class="mann-price-header">
               <span class="mann-price-name">溫和淨色 (殘留眉色)</span>
               <span class="mann-price-value">$2,500 / 次</span>
@@ -831,9 +828,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
