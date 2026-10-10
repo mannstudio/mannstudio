@@ -7,12 +7,12 @@
   <title>漫恩美學 MANN STUDIO | 專業日式美睫・質感半永久定妝</title>
   <meta name="description" content="漫恩美學 MANN STUDIO - 專注於慢工細作的日式美睫與質感半永久定妝。">
   
-  <!-- 引入 Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* --- 核心色彩與變數系統 --- */
     :root {
       --bg-body: #F9F8F6;       
       --bg-card: #FFFFFF;
@@ -58,6 +58,7 @@
       position: relative;
     }
 
+    /* --- Header 區塊 --- */
     .mann-header {
       padding: 24px 24px 16px; 
       text-align: center;
@@ -78,6 +79,7 @@
       font-weight: 500;
     }
 
+    /* --- 導覽列 (Tabs) --- */
     .mann-tabs {
       display: flex;
       position: sticky;
@@ -90,10 +92,10 @@
       gap: 8px; 
       border-bottom: 1px solid var(--divider-color);
       overflow-x: auto;
-      scrollbar-width: none;
+      scrollbar-width: none; 
     }
     .mann-tabs::-webkit-scrollbar {
-      display: none;
+      display: none; 
     }
     
     .mann-tab {
@@ -116,6 +118,7 @@
       font-weight: 600;
     }
 
+    /* --- 內容區塊 --- */
     .mann-content {
       padding: 16px 20px 120px; 
       flex-grow: 1;
@@ -135,6 +138,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* --- 排版與卡片系統 --- */
     .mann-section-title {
       font-size: 18px;
       font-weight: 600;
@@ -166,6 +170,7 @@
       box-shadow: 0 4px 20px rgba(148, 126, 109, 0.04); 
     }
 
+    /* 無表情符號的高質感直條裝飾副標題 */
     .mann-sub-title {
       font-size: 15px;
       font-weight: 600;
@@ -200,6 +205,7 @@
       margin-bottom: 0;
     }
 
+    /* --- 列表樣式 --- */
     ul.mann-list {
       list-style: none;
     }
@@ -233,6 +239,7 @@
       opacity: 0.6;
     }
 
+    /* --- 折疊選單 (FAQ 專用) --- */
     details.mann-accordion {
       background-color: var(--bg-card);
       border-radius: 12px;
@@ -284,6 +291,7 @@
       background-color: #FCFAFA;
     }
 
+    /* --- 價目表排版 --- */
     .mann-price-group {
       margin-bottom: 24px;
     }
@@ -330,6 +338,7 @@
       line-height: 1.6;
     }
 
+    /* --- 輔助 UI 組件 --- */
     .mann-badge {
       display: inline-block;
       font-size: 11px;
@@ -357,6 +366,7 @@
       color: var(--text-sub);
     }
 
+    /* --- 底部浮動按鈕 --- */
     .mann-bottom-actions {
       position: fixed;
       bottom: calc(24px + env(safe-area-inset-bottom, 0px)); 
@@ -449,31 +459,20 @@
         <h3 class="mann-sub-title">行前準備與聲明</h3>
         <ul class="mann-list">
           <li><strong>美睫準備：</strong>請素眼抵達，避開眼妝、睫毛膏與夾睫毛。建議配戴舒適的透明隱形眼鏡。</li>
-          <li><strong>定妝準備：</strong>預約前一週請停用酸類、亮白保養品。操作潤色唇者請每天厚敷凡士林加強保濕。</li>
+          <li><strong>定妝準備：</strong>預約前一週請停用酸類、亮白保養品。操作潤色唇者請每天厚敷修護霜加強保濕。</li>
           <li><strong>美感聲明：</strong>美感較為主觀，施作前會充分溝通。完成後恕無法以「不習慣」等理由要求退費。完美主義者請先行評估。</li>
         </ul>
       </div>
 
       <div class="mann-section-title" style="margin-top: 48px;">常見問題 Q&A</div>
       
+      <!-- QA 分類一：美睫與毛流管理 -->
+      <h3 class="mann-sub-title" style="margin: 24px 0 16px;">美睫與毛流管理</h3>
+      
       <details class="mann-accordion">
         <summary>第一次來，不確定適合什麼款式？</summary>
         <div class="mann-accordion-content">
           您可以先預約「基本款式」。施作當天，我會根據您的眼型、原生睫毛狀況及日常化妝習慣，現場一對一為您客製專屬設計喔！
-        </div>
-      </details>
-
-      <details class="mann-accordion">
-        <summary>以前在別家做過，可以預約重做嗎？</summary>
-        <div class="mann-accordion-content">
-          若有舊底色殘留，建議您先傳送清晰的素顏照片至 LINE 讓我初步評估。<br><br>若底色較深或形狀需大改，會建議先安排<strong>「眉色 / 唇色淨化管理」</strong>將殘留色素溫和淡化，等皮膚代謝後重新定妝，效果才會最乾淨漂亮喔！
-        </div>
-      </details>
-
-      <details class="mann-accordion">
-        <summary>操作過程會痛嗎？</summary>
-        <div class="mann-accordion-content">
-          漫恩採用的是極輕柔的表層手法，且施作前與過程中都會做好完善的舒緩準備。大多數客人都會覺得非常放鬆，甚至舒服到睡著喔！若您比較怕痛，可以隨時提出，我會隨時為您調整。
         </div>
       </details>
 
@@ -485,16 +484,40 @@
       </details>
 
       <details class="mann-accordion">
+        <summary>睫毛管理就是角蛋白嗎？</summary>
+        <div class="mann-accordion-content">
+          視覺效果相似，但漫恩採用的是新一代<strong>溫和毛髮物理調整技術</strong>，全程使用符合化粧品規範的修護配方，提拉同時導入高濃度膠原，是越保養越健康的頂級毛流護理。
+        </div>
+      </details>
+
+      <details class="mann-accordion">
+        <summary>睫毛大約能維持多久？何時要整理？</summary>
+        <div class="mann-accordion-content">
+          美睫一般約可維持 <strong>4 到 6 週</strong>。想保持濃密完美，建議 3 週內預約回補；超過 4 週則建議「全卸重接」，徹底深層清潔眼周對毛囊更健康。
+        </div>
+      </details>
+
+      <details class="mann-accordion">
         <summary>什麼是 LED 光固？敏感肌/孕婦能做嗎？</summary>
         <div class="mann-accordion-content">
           LED 光固是使用專用低敏凝膠，搭配特定波長 LED 燈照射，讓接著點在 2 秒內瞬間固化。因為固化極快，大幅降低了傳統黑膠氣體的刺激感，<strong>非常適合易出油、流汗、眼部敏感或是孕婦媽咪</strong>！且接完當下就能碰水洗臉，持久度也比傳統嫁接更有感喔。
         </div>
       </details>
 
+      <!-- QA 分類二：半永久定妝與淨化 -->
+      <h3 class="mann-sub-title" style="margin: 32px 0 16px;">半永久定妝與淨化管理</h3>
+
+      <details class="mann-accordion">
+        <summary>操作過程會痛嗎？</summary>
+        <div class="mann-accordion-content">
+          漫恩採用的是極輕柔的表層手法，且施作前與過程中都會做好完善的舒緩準備。大多數客人都會覺得非常放鬆，甚至舒服到睡著喔！若您比較怕痛，可以隨時提出，我會為您做調整。
+        </div>
+      </details>
+
       <details class="mann-accordion">
         <summary>霧眉或美瞳線做完會像蠟筆小新嗎？</summary>
         <div class="mann-accordion-content">
-          漫恩採用極輕柔的表層溫和上色，<strong>做完當下即非常自然，無尷尬過渡期</strong>。大約 3 到 5 天會有微細小脫屑，做好居家保濕清潔即可。
+          漫恩採用極輕柔的表層溫和上色，<strong>做完當下即非常自然，無尷尬過渡期</strong>。大約 3 到 5 天會有微細小脫屑，只要做好居家保濕與清潔即可。
         </div>
       </details>
 
@@ -502,6 +525,13 @@
         <summary>定妝久了會變紅或變藍嗎？</summary>
         <div class="mann-accordion-content">
           一般約可維持 1 至 3 年。漫恩全程使用安全優質的進口植物色乳，隨時間只會自然變淡，<strong>絕對不會留下老氣且難清除的紅、藍底色</strong>。
+        </div>
+      </details>
+
+      <details class="mann-accordion">
+        <summary>以前在別家做過，可以找妳重做嗎？</summary>
+        <div class="mann-accordion-content">
+          若有舊底色殘留，建議您先傳送清晰的素顏照片至 LINE 讓我初步評估。<br><br>若底色較深或形狀需大改，會建議先安排<strong>「淨化管理」</strong>將殘留色素溫和代謝，等皮膚恢復後重新定妝，效果才會最乾淨漂亮喔！
         </div>
       </details>
 
@@ -544,7 +574,7 @@
       <div class="mann-section-title">日式美睫設計</div>
       <div class="mann-card">
         <p class="mann-card-desc" style="margin-bottom: 20px;">
-          使用日本進口零等待期鎖固精華（全項標配）。頂級柔軟毛（霧黑 / 可可）。款式設計將於現場客製討論。
+          升級極致輕盈無重力頂級柔軟毛（霧黑 / 可可）。標配日本進口零等待期鎖固精華，款式設計將於現場客製討論。
         </p>
         <div class="mann-price-group">
           <div class="mann-price-row">
@@ -577,22 +607,27 @@
               <span class="mann-price-value">+$500</span>
             </div>
           </div>
-          <div class="mann-price-row">
-            <div class="mann-price-header">
-              <span class="mann-price-name">LED 光固技術升級</span>
-              <span class="mann-price-value">+$300</span>
-            </div>
-            <span class="mann-price-note">抗油抗汗全面提升，低敏溫和，容易出油膚質、敏感肌與孕婦首選。</span>
-          </div>
-          <div class="mann-price-row">
-            <div class="mann-price-header">
-              <span class="mann-price-name">嫁接後毛流塑形</span>
-              <span class="mann-price-value">+$1,000</span>
-            </div>
-            <span class="mann-price-note">專為下垂與雜亂毛流設計！將真假睫毛向上拉提定型，告別兩層分岔。</span>
-          </div>
         </div>
         
+        <div class="mann-divider"></div>
+        <h3 class="mann-sub-title">進階技術升級</h3>
+        <div class="mann-price-group">
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">持久極致的 LED 光固</span>
+              <span class="mann-price-value">加購 +$300</span>
+            </div>
+            <span class="mann-price-note">抗油抗汗全面提升，低敏溫和，容易出油膚質、敏感肌與孕婦皆可安心選擇！</span>
+          </div>
+          <div class="mann-price-row">
+            <div class="mann-price-header">
+              <span class="mann-price-name">嫁接後塑形技術</span>
+              <span class="mann-price-value">加購 +$1,000</span>
+            </div>
+            <span class="mann-price-note">專為下垂與雜亂毛流設計！將真假睫毛完美向上拉提定型，告別兩層分岔。</span>
+          </div>
+        </div>
+
         <div class="mann-divider"></div>
         <h3 class="mann-sub-title">精緻回補方案</h3>
         <div class="mann-price-group">
@@ -726,14 +761,17 @@
               <span class="mann-price-name">眉色淨化管理</span>
               <span class="mann-price-value">$2,500 / 次</span>
             </div>
+            <span class="mann-price-note">溫和淡化遺留底色，讓後續定妝更純淨。</span>
           </div>
           <div class="mann-price-row">
             <div class="mann-price-header">
               <span class="mann-price-name">唇色淨化管理</span>
               <span class="mann-price-value">$2,500 / 次</span>
             </div>
+            <span class="mann-price-note">深層溫和代謝，改善唇部暗沉邊緣。</span>
           </div>
-          <div class="mann-price-row">
+          
+          <div class="mann-price-row" style="margin-top: 12px;">
             <div class="mann-price-header">
               <span class="mann-price-name">防護睫毛雨衣</span>
               <span class="mann-price-value">$620</span>
@@ -775,21 +813,34 @@
       </div>
 
       <div class="mann-section-title">半永久定妝居家指南</div>
+      
+      <!-- 眉眼定妝保養 -->
       <div class="mann-card">
-        <h3 class="mann-sub-title">柔霧眉與美瞳線專屬</h3>
+        <h3 class="mann-sub-title">眉眼定妝專屬（柔霧眉 / 美瞳線）</h3>
         <ul class="mann-list">
-          <li><strong>正常洗臉：</strong>當天即可正常洗臉。用常溫水輕潑操作部位，洗後用面紙「輕壓」吸乾水分。</li>
-          <li><strong>薄塗保濕：</strong>保持表面微潤，薄擦專用修護霜。保養請避開含酸類或美白成分之產品。</li>
-          <li><strong>微屑代謝：</strong>約 3-5 天會有微細皮屑脫落，微癢屬正常現象。請勿摳抓，讓其自然脫落留色才會均勻。</li>
+          <li><strong>正常洗臉：</strong>當天即可正常洗臉。用常溫水輕潑操作部位，洗後用面紙「輕輕按壓」吸乾水分，保持表面乾爽。</li>
+          <li><strong>微潤保濕：</strong>洗臉後請「薄擦」專用修護霜，維持表面微潤即可。日常保養請避開含酸類或美白成分之產品。</li>
+          <li><strong>微屑代謝：</strong>約 3-5 天會有細小皮屑脫落，微癢屬正常現象。<strong>千萬不要摳抓或揉眼</strong>，讓其自然脫落留色才會完整均勻。</li>
         </ul>
-        
-        <div class="mann-divider" style="margin: 16px 0;"></div>
-        
-        <h3 class="mann-sub-title">潤色唇專屬</h3>
+      </div>
+
+      <!-- 唇部定妝保養 -->
+      <div class="mann-card">
+        <h3 class="mann-sub-title">潤色唇專屬（請極致厚敷）</h3>
         <ul class="mann-list">
-          <li><strong>隨時厚敷：</strong>唇部無皮脂腺，修護期間「絕對不能乾燥」。請隨時厚敷專用修護霜或凡士林，預防結硬痂。</li>
+          <li><strong>隨時厚敷：</strong>唇部無皮脂腺，修護期間「絕對不能乾燥」。請<strong>隨時厚敷</strong>專用修護霜或凡士林，預防結硬痂。</li>
           <li><strong>飲食與清潔：</strong>一週內避開生食、辛辣與熱湯。吃東西盡量小口，飯後務必用生理食鹽水輕擦清潔雙唇。</li>
-          <li><strong>必經反色期：</strong>約 3-5 天會開始自然脫皮，切勿用手撕扯。初期反色變暗屬正常現象，滿月後將逐漸透亮。</li>
+          <li><strong>必經反色期：</strong>約 3-5 天會開始自然脫皮，切勿用手撕扯。初期反色變暗屬正常現象，滿月後將逐漸透出粉嫩透亮感。</li>
+        </ul>
+      </div>
+
+      <div class="mann-section-title">淨化管理居家指南</div>
+      <div class="mann-card">
+        <h3 class="mann-sub-title">眉色 / 唇色淨化專屬</h3>
+        <ul class="mann-list">
+          <li><strong>加強保濕：</strong>淨化後皮膚較易乾燥，請務必加強日常保濕，唇部請比照潤色唇規範隨時厚塗修護霜。</li>
+          <li><strong>防曬與代謝：</strong>新生皮膚對光線較敏感，出門務必做好防曬（撐傘或戴帽子），避免色素沉澱。</li>
+          <li><strong>耐心等待：</strong>淨化代謝需要時間，滿一個月後的淡化程度最為準確，屆時可評估進行二次淨化或重新定妝。</li>
         </ul>
       </div>
 
